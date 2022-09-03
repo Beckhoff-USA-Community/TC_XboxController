@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="ST_XBox_Controller_Buttons_Bits" Id="{f7ab0e83-6778-4434-bbe8-fe6ee7496039}">
+    <Declaration><![CDATA[TYPE ST_XBox_Controller_Buttons_Bits :
+STRUCT
+	xDPAD_UP  			: BIT;
+    xDPAD_DOWN  		: BIT;
+    xDPAD_LEFT  		: BIT;
+    xDPAD_RIGHT  		: BIT;
+    xSTART  			: BIT;
+    xBACK  				: BIT;
+    xLEFT_THUMB  		: BIT;
+    xRIGHT_THUMB  		: BIT;   
+	xLEFT_SHOULDER  	: BIT;
+    xRIGHT_SHOULDER  	: BIT;
+	{attribute 'hide'}
+	xFiller1 			: BIT;
+	{attribute 'hide'}
+	xFiller2			: BIT;
+	xA  				: BIT;
+	xB  				: BIT;
+	xX  				: BIT;
+	xY  				: BIT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

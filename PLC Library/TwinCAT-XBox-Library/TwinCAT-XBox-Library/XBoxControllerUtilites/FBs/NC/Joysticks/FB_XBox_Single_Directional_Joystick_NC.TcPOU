@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_XBox_Single_Directional_Joystick_NC" Id="{2ba681f7-602b-4d57-80a3-58d7cfe103fa}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_XBox_Single_Directional_Joystick_NC
+VAR
+	_mcJog				: MC_Jog;
+	_rtJogEnable		: R_TRIG;
+	_ftJogEnable		: F_TRIG;
+	_bJoggingActive		: BOOL;
+	_fPrevOverride		: UDINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="FB_init" Id="{0aa70316-42f0-49a2-8556-e9aebc66a94b}">
+      <Declaration><![CDATA[METHOD FB_init : BOOL
+VAR_INPUT
+	bInitRetains : BOOL; // if TRUE, the retain variables are initialized (warm start / cold start)
+	bInCopyCode : BOOL;  // if TRUE, the instance afterwards gets moved into the copy code (online change)
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Jog" Id="{9a4b5f71-5b33-4177-bb28-505a96ce8cf6}">
+      <Declaration><![CDATA[METHOD Jog
+VAR_INPUT
+	bEnable			: BOOL;	
+	fJoytsick		: LREAL;
+	Axis			: REFERENCE TO Axis_Ref;
+	stOptions		: ST_XBox_Single_Directional_Joystick_NC_Options;
+END_VAR
+VAR
+	bJogForward 	: BOOL;
+	bJogBackwards 	: BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Rising edge trigger of the block enable
+_rtJogEnable(CLK := bEnable);
+// Falling edge trigger of the block enable
+_ftJogEnable(CLK := bEnable);
+
+// Rising edge trigger of the block enable
+IF _rtJogEnable.Q THEN
+	// Save the current override value before jogging
+	// Check the Axis reference is valid	
+	IF __ISVALIDREF(Axis) THEN
+		THIS^._fPrevOverride := Axis.PlcToNc.Override;
+	END_IF
+	// Enable the jog methods
+	_bJoggingActive	:= TRUE;
+END_IF
+
+// Falling edge trigger of the block enable
+IF _ftJogEnable.Q THEN
+	// Restore the past override value before enable
+	// Check the Axis reference is valid	
+	IF __ISVALIDREF(Axis) THEN
+		Axis.PlcToNc.Override := THIS^._fPrevOverride;
+			// Cleanup any old Jog commands
+		THIS^._mcJog(
+					  Axis:= Axis, 
+					  JogForward:= FALSE, 
+					  JogBackwards:= FALSE, 
+					  Mode:= E_JogMode.MC_JOGMODE_STANDARD_FAST);	
+	END_IF
+	// Disable calling to jog methods
+	_bJoggingActive := FALSE;
+END_IF
+
+// Check the Joystick reference is valid
+IF _bJoggingActive THEN
+	// Check the Axis reference is valid	
+	IF __ISVALIDREF(Axis) THEN
+		// Check the direction the joystick is moving, or if in deadzone					 
+		IF fJoytsick = 0 THEN
+			bJogForward 	:= FALSE;
+			bJogBackwards := FALSE;
+			Axis.PlcToNc.Override := 0;
+		ELSIF fJoytsick < 0 THEN
+			// Check for inversion
+			IF NOT stOptions.bInverted THEN
+				bJogForward 	:= FALSE;
+				bJogBackwards := TRUE;
+			ELSE
+				bJogForward 	:= TRUE;
+				bJogBackwards := FALSE;
+			END_IF
+			// Set the new override based on the directional pressure
+			Axis.PlcToNc.Override := TO_UDINT(ABS(fJoytsick * (stOptions.fMaxOverride/100)) * 10000);
+		ELSIF fJoytsick > 0 THEN
+			// Check for inversion
+			IF NOT stOptions.bInverted THEN
+				bJogForward 	:= TRUE;
+				bJogBackwards := FALSE;
+			ELSE
+				bJogForward 	:= FALSE;
+				bJogBackwards := TRUE;
+			END_IF
+			// Set the new override based on the directional pressure
+			Axis.PlcToNc.Override := TO_UDINT(ABS(fJoytsick * (stOptions.fMaxOverride/100)) * 10000);
+		END_IF
+		// Main jog call for axis
+		THIS^._mcJog(
+					  Axis:= Axis, 
+					  JogForward:= bJogForward, 
+					  JogBackwards:= bJogBackwards, 
+					  Mode:= E_JogMode.MC_JOGMODE_STANDARD_FAST);
+	END_IF
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_XBox_Single_Directional_Joystick_NC">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Single_Directional_Joystick_NC.FB_init">
+      <LineId Id="7" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Single_Directional_Joystick_NC.Jog">
+      <LineId Id="18" Count="11" />
+      <LineId Id="33" Count="16" />
+      <LineId Id="58" Count="11" />
+      <LineId Id="100" Count="0" />
+      <LineId Id="70" Count="29" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

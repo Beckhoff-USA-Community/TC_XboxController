@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="E_XBox_Controller_Battery_Types" Id="{1eac3af5-eade-4890-9e49-5376e579fab8}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_XBox_Controller_Battery_Types :
+(
+	// Battery is disconnected
+	Disconnected := 0,
+	// Battery is wired
+	Wired := 1,
+	// Battery is alkaline
+	Alkaline := 2,
+	// Battery is nickel-metal hydride
+	NIMH := 3,
+	// Battery is unknown
+	Unknown := 4
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

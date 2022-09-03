@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="ST_XBox_Controller_Buttons" Id="{426da909-a6ed-4fb1-a23c-704a49f9a8b7}">
+    <Declaration><![CDATA[TYPE ST_XBox_Controller_Buttons :
+STRUCT
+	// Directional Pad Struct
+	DPad				: ST_XBox_Controller_DPad;
+	// Start Button
+    bStart  			: BOOL;
+	// Back Button
+    bBack  				: BOOL;
+	// Pressing in the Left Thumbstick
+    bLeft_Thumbstick  	: BOOL;
+	// Pressing in the Right Thumbstick
+    bRight_Thumbstick  	: BOOL;
+	// Left Shoulder Button  
+	bLeft_Shoulder  	: BOOL;
+	// Right Shoulder Button
+    bRight_Shoulder  	: BOOL;
+	// Button A
+	bA_Button  			: BOOL;
+	// Button B
+	bB_Button  			: BOOL;
+	// Button X
+	bX_Button  			: BOOL;
+	// Button Y
+	bY_Button  			: BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

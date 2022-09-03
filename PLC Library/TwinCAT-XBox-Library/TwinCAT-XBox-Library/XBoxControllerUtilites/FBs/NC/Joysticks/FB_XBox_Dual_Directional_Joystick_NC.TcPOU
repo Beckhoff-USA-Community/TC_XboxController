@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_XBox_Dual_Directional_Joystick_NC" Id="{12e9f3c7-91a0-415a-afeb-2e31aedc9cac}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_XBox_Dual_Directional_Joystick_NC
+VAR
+	// Axis Control Blocks
+	_JoystickNC_X		: FB_XBox_Single_Directional_Joystick_NC;
+	_JoystickNC_Y		: FB_XBox_Single_Directional_Joystick_NC;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="FB_init" Id="{a99e7e3c-21c3-4117-abc1-72ffd45e3752}">
+      <Declaration><![CDATA[METHOD FB_init : BOOL
+VAR_INPUT
+	bInitRetains : BOOL; // if TRUE, the retain variables are initialized (warm start / cold start)
+	bInCopyCode : BOOL;  // if TRUE, the instance afterwards gets moved into the copy code (online change)
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Jog" Id="{000b2280-a1b1-4af9-b913-28d7084b9b4d}">
+      <Declaration><![CDATA[METHOD Jog
+VAR_INPUT
+	bEnable			: BOOL;	
+	stJoytsick		: REFERENCE TO ST_XBox_Controller_Joystick;
+	X_Axis			: REFERENCE TO Axis_Ref;
+	Y_Axis			: REFERENCE TO Axis_Ref;
+	stOptions		: ST_XBox_Dual_Directional_Joystick_NC_Options;
+END_VAR
+VAR	
+	X_Axis_Options: ST_XBox_Single_Directional_Joystick_NC_Options;
+	Y_Axis_Options: ST_XBox_Single_Directional_Joystick_NC_Options;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF __ISVALIDREF(stJoytsick) AND __ISVALIDREF(X_Axis) AND __ISVALIDREF(Y_Axis) THEN
+	// Call the X-Axis Joystick
+	X_Axis_Options.bInverted := stOptions.bInverted_X;
+	X_Axis_Options.fMaxOverride := stOptions.fMaxOverride_X;
+	_JoystickNC_X.Jog(bEnable:= bEnable, fJoytsick:= stJoytsick.fX, Axis:= X_Axis, stOptions:= X_Axis_Options);
+	
+	// Call the Y-Axis Joystick
+	Y_Axis_Options.bInverted := stOptions.bInverted_Y;
+	Y_Axis_Options.fMaxOverride := stOptions.fMaxOverride_Y;
+	_JoystickNC_Y.Jog(bEnable:= bEnable, fJoytsick:= stJoytsick.fY, Axis:= Y_Axis, stOptions:= Y_Axis_Options);
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_XBox_Dual_Directional_Joystick_NC">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Dual_Directional_Joystick_NC.FB_init">
+      <LineId Id="11" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Dual_Directional_Joystick_NC.Jog">
+      <LineId Id="369" Count="0" />
+      <LineId Id="372" Count="1" />
+      <LineId Id="390" Count="0" />
+      <LineId Id="374" Count="3" />
+      <LineId Id="391" Count="0" />
+      <LineId Id="370" Count="1" />
+      <LineId Id="360" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

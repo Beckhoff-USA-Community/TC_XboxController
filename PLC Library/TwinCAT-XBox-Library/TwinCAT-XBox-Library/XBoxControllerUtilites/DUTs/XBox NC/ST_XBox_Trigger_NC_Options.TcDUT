@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="ST_XBox_Trigger_NC_Options" Id="{227011e3-3da0-45fe-836e-8de3fdd94553}">
+    <Declaration><![CDATA[TYPE ST_XBox_Trigger_NC_Options :
+STRUCT
+	// Inverts the direction of the axis
+	bInverted : BOOL := FALSE;
+	// Maximum Feedrate
+	fMaxOverride : LREAL := 100.0;
+END_STRUCT
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>

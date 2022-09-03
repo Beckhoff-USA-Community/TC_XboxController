@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="ST_XBox_Controller_Rumble" Id="{b339dff4-fa4d-487e-9d7c-0d56e52c72e7}">
+    <Declaration><![CDATA[TYPE ST_XBox_Controller_Rumble :
+STRUCT
+	// Rumble of left motor (0..100%)
+	fLeftMotor 	: REAL;
+	// Rumble of right motor (0..100%)
+	fRightMotor : REAL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

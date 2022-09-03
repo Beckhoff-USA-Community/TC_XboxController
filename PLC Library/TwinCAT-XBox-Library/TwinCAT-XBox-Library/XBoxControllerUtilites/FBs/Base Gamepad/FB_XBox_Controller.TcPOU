@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_XBox_Controller" Id="{16e61ff8-1d18-479b-8b07-5a4f238667a6}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_XBox_Controller
+VAR
+	{attribute 'hide'}
+	_AmsNetId : T_AMSNETID;
+	{attribute 'hide'}
+	_WriteServerData : ADSWRITE;
+	{attribute 'hide'}
+	_ReadServerData : ADSREAD;
+	// RAW ADS Inputs for debug (Use properties to access items)
+	stXBoxControllerInputs : ST_XBox_Controller_ADS_Inputs;
+	{attribute 'hide'}
+	_stRumble : ST_XBox_Controller_Rumble;
+	{attribute 'hide'}
+	_IDXGRP : UDINT;
+	{attribute 'hide'}
+	_rumbleCommand 			: ST_XBox_Class_Command_Status;
+	{attribute 'hide'}
+	_stControllerButtons 	: ST_XBox_Controller_Buttons;
+	{attribute 'hide'}
+	_stControllerStatus		: ST_XBox_Controller_Status;
+	{attribute 'hide'}
+	_stLeftJoystick 		: ST_XBox_Controller_Joystick;
+	{attribute 'hide'}
+	_stRightJoystick 		: ST_XBox_Controller_Joystick;
+	{attribute 'hide'}
+	_fLeftTrigger 			: REAL;
+	{attribute 'hide'}
+	_fRightTrigger 			: REAL;
+	{attribute 'hide'}
+	_bSetRumbleEvent 		: BOOL; // Internal indication of an ADS write event
+	{attribute 'hide'}
+	_bSetRumbleEventLogged	: BOOL; // Check if the Set Rumble event is being called too many times	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="Cycle" Id="{c4c654fa-155e-401b-8a85-1aefc3ab660f}">
+      <Declaration><![CDATA[// This method is called cyclically to update the controller inputs
+METHOD Cycle : BOOL
+
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Read the current inputs
+THIS^._ReadServerData(
+	NETID:= THIS^._AmsNetId, 
+	PORT:= 25733, 
+	IDXGRP:= THIS^._IDXGRP, 
+	IDXOFFS:= 0, 
+	LEN:= SIZEOF(THIS^.stXBoxControllerInputs), 
+	DESTADDR:= ADR(THIS^.stXBoxControllerInputs), 
+	READ:= TRUE, 
+	TMOUT:= T#5S,
+	ERR=>);
+	
+// If there is an error in reading from the server, shut all inputs off
+IF THIS^._ReadServerData.ERR THEN
+	memset(ADR(THIS^.stXBoxControllerInputs), 0, SIZEOF(THIS^.stXBoxControllerInputs));
+END_IF
+
+// Stop read command
+THIS^._ReadServerData(
+	NETID:= THIS^._AmsNetId, 
+	PORT:= 25733, 
+	IDXGRP:= THIS^._IDXGRP, 
+	IDXOFFS:= 0, 
+	LEN:= SIZEOF(THIS^.stXBoxControllerInputs), 
+	DESTADDR:= ADR(THIS^.stXBoxControllerInputs), 
+	READ:= FALSE, 
+	TMOUT:= T#5S,
+	ERR=>);
+	
+
+// Handle any write requests for the rumble
+// Write the new values
+THIS^._WriteServerData(
+	NETID:= THIS^._AmsNetId, 
+	PORT:= 25733, 
+	IDXGRP:= THIS^._IDXGRP, 
+	IDXOFFS:= 16, 
+	LEN:= SIZEOF(THIS^._stRumble), 
+	SRCADDR:= ADR(THIS^._stRumble), 
+	WRITE:= THIS^._bSetRumbleEvent, 
+	TMOUT:= T#5S);
+	
+// Update the status of the current command if active
+IF 	THIS^._bSetRumbleEvent THEN
+	THIS^.P_SetRumble.bBusy := THIS^._WriteServerData.BUSY;
+	THIS^.P_SetRumble.bError := THIS^._WriteServerData.ERR;
+END_IF
+
+// Check if it's done writing
+IF THIS^._bSetRumbleEvent AND NOT THIS^._WriteServerData.BUSY THEN
+	IF NOT THIS^._WriteServerData.ERR THEN
+		THIS^.P_SetRumble.bDone := TRUE;
+	END_IF
+	// Turn off the write request
+	THIS^._WriteServerData(
+		NETID:= THIS^._AmsNetId, 
+		PORT:= 25733, 
+		IDXGRP:= THIS^._IDXGRP, 
+		IDXOFFS:= 16, 
+		LEN:= SIZEOF(THIS^._stRumble), 
+		SRCADDR:= ADR(THIS^._stRumble), 
+		WRITE:= FALSE, 
+		TMOUT:= T#5S);
+		
+	THIS^._bSetRumbleEvent := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="FB_init" Id="{5ca1819e-d48f-4374-9f4b-b509d7da22ed}">
+      <Declaration><![CDATA[METHOD FB_init : BOOL
+VAR_INPUT
+	bInitRetains : BOOL; // if TRUE, the retain variables are initialized (warm start / cold start)
+	bInCopyCode : BOOL;  // if TRUE, the instance afterwards gets moved into the copy code (online change)
+	NetID 				: T_AMSNETID := ''; // AMS Net ID of the XBox Service Provider
+	iControllerNumber 	: UINT(1..4) := 1; // The controller number for the controller you'd like to use
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[THIS^._AmsNetId := NetID;
+THIS^._IDXGRP := iControllerNumber * 16#10000;]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="P_Buttons" Id="{9ecee726-55c8-4ab8-9170-a864e7a68da5}">
+      <Declaration><![CDATA[// Structure of the different active buttons
+PROPERTY P_Buttons : REFERENCE TO ST_XBox_Controller_Buttons]]></Declaration>
+      <Get Name="Get" Id="{fabea6d4-f972-48bb-9b75-17006ffd152b}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF THIS^.stXBoxControllerInputs.bStatus.xConnected THEN	
+	THIS^._stControllerButtons.DPad.bUp				:= THIS^.stXBoxControllerInputs.bButtons.xDPAD_UP;
+	THIS^._stControllerButtons.DPad.bDown			:= THIS^.stXBoxControllerInputs.bButtons.xDPAD_DOWN;
+	THIS^._stControllerButtons.DPad.bLeft			:= THIS^.stXBoxControllerInputs.bButtons.xDPAD_LEFT;
+	THIS^._stControllerButtons.DPad.bRight			:= THIS^.stXBoxControllerInputs.bButtons.xDPAD_RIGHT;
+	THIS^._stControllerButtons.bStart  				:= THIS^.stXBoxControllerInputs.bButtons.xSTART;
+	THIS^._stControllerButtons.bBack  				:= THIS^.stXBoxControllerInputs.bButtons.xBACK;
+	THIS^._stControllerButtons.bLeft_Thumbstick  	:= THIS^.stXBoxControllerInputs.bButtons.xLEFT_THUMB;
+	THIS^._stControllerButtons.bRight_Thumbstick 	:= THIS^.stXBoxControllerInputs.bButtons.xRIGHT_THUMB;
+	THIS^._stControllerButtons.bLeft_Shoulder  		:= THIS^.stXBoxControllerInputs.bButtons.xLEFT_SHOULDER;
+	THIS^._stControllerButtons.bRight_Shoulder  	:= THIS^.stXBoxControllerInputs.bButtons.xRIGHT_SHOULDER;
+	THIS^._stControllerButtons.bA_Button  			:= THIS^.stXBoxControllerInputs.bButtons.xA;
+	THIS^._stControllerButtons.bB_Button  			:= THIS^.stXBoxControllerInputs.bButtons.xB;
+	THIS^._stControllerButtons.bX_Button  			:= THIS^.stXBoxControllerInputs.bButtons.xX;
+	THIS^._stControllerButtons.bY_Button  			:= THIS^.stXBoxControllerInputs.bButtons.xY;
+ELSE
+	THIS^._stControllerButtons.DPad.bUp				:= FALSE;
+	THIS^._stControllerButtons.DPad.bDown			:= FALSE;
+	THIS^._stControllerButtons.DPad.bLeft			:= FALSE;
+	THIS^._stControllerButtons.DPad.bRight			:= FALSE;
+	THIS^._stControllerButtons.bStart  				:= FALSE;
+	THIS^._stControllerButtons.bBack  				:= FALSE;
+	THIS^._stControllerButtons.bLeft_Thumbstick  	:= FALSE;
+	THIS^._stControllerButtons.bRight_Thumbstick 	:= FALSE;
+	THIS^._stControllerButtons.bLeft_Shoulder  		:= FALSE;
+	THIS^._stControllerButtons.bRight_Shoulder  	:= FALSE;
+	THIS^._stControllerButtons.bA_Button  			:= FALSE;
+	THIS^._stControllerButtons.bB_Button  			:= FALSE;
+	THIS^._stControllerButtons.bX_Button  			:= FALSE;
+	THIS^._stControllerButtons.bY_Button  			:= FALSE;
+END_IF
+P_Buttons REF= THIS^._stControllerButtons;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="P_Left_Joystick" Id="{33db2771-a51a-47cd-87e9-82222a82ae74}">
+      <Declaration><![CDATA[// Returns a structure of data for the XY Joystick values
+PROPERTY P_Left_Joystick : REFERENCE TO ST_XBox_Controller_Joystick]]></Declaration>
+      <Get Name="Get" Id="{4b140f7b-8969-4350-962e-103fcb9f7ed9}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF THIS^.stXBoxControllerInputs.bStatus.xConnected THEN	
+	THIS^._stLeftJoystick.fX := THIS^.stXBoxControllerInputs.stLeft_Joystick.fX;
+	THIS^._stLeftJoystick.fY := THIS^.stXBoxControllerInputs.stLeft_Joystick.fY;
+ELSE
+	THIS^._stLeftJoystick.fX := 0;
+	THIS^._stLeftJoystick.fY := 0;
+END_IF
+P_Left_Joystick REF= THIS^._stLeftJoystick;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="P_Left_Trigger" Id="{4760222a-9195-417e-97df-e345197e8a07}">
+      <Declaration><![CDATA[// Left trigger value
+PROPERTY P_Left_Trigger : REFERENCE TO REAL]]></Declaration>
+      <Get Name="Get" Id="{1906a11d-9ff5-4e03-b10e-492065686575}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF THIS^.stXBoxControllerInputs.bStatus.xConnected THEN	
+	THIS^._fLeftTrigger := THIS^.stXBoxControllerInputs.fLeft_Trigger;
+ELSE
+	THIS^._fLeftTrigger := 0;
+END_IF
+P_Left_Trigger REF= THIS^._fLeftTrigger;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="P_Right_Joystick" Id="{e8db0053-5241-40a3-8cab-5544d5c2006b}">
+      <Declaration><![CDATA[// Returns a structure of data for the XY Joystick values
+PROPERTY P_Right_Joystick : REFERENCE TO ST_XBox_Controller_Joystick]]></Declaration>
+      <Get Name="Get" Id="{0e92480b-9055-499c-897c-becbad0c9d16}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF THIS^.stXBoxControllerInputs.bStatus.xConnected THEN	
+	THIS^._stRightJoystick.fX := THIS^.stXBoxControllerInputs.stRight_Joystick.fX;
+	THIS^._stRightJoystick.fY := THIS^.stXBoxControllerInputs.stRight_Joystick.fY;
+ELSE
+	THIS^._stRightJoystick.fX := 0;
+	THIS^._stRightJoystick.fY := 0;
+END_IF
+P_Right_Joystick REF= THIS^._stRightJoystick;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="P_Right_Trigger" Id="{78732f9d-af31-4e4c-821e-1f8189aa19ee}">
+      <Declaration><![CDATA[// Right trigger value
+PROPERTY P_Right_Trigger : REFERENCE TO REAL]]></Declaration>
+      <Get Name="Get" Id="{f85af2b8-09ba-4400-a23b-f2e4aab2e32c}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF THIS^.stXBoxControllerInputs.bStatus.xConnected THEN	
+	THIS^._fRightTrigger := THIS^.stXBoxControllerInputs.fRight_Trigger;
+ELSE
+	THIS^._fRightTrigger := 0;
+END_IF
+P_Right_Trigger REF= THIS^._fRightTrigger;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="P_SetRumble" Id="{e951a137-f153-4333-bf9b-6c5d979a71f2}">
+      <Declaration><![CDATA[// Status of the SetRumble method
+PROPERTY P_SetRumble : REFERENCE TO ST_XBox_Class_Command_Status]]></Declaration>
+      <Get Name="Get" Id="{1009e700-d671-4ebf-b638-5a140a7d5a04}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[P_SetRumble REF= THIS^._rumbleCommand;
+
+]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Property Name="P_Status" Id="{9862bf27-d17e-48b2-b703-c886caf0e3f2}">
+      <Declaration><![CDATA[// Structure of the controller capabilites and status
+PROPERTY P_Status : REFERENCE TO ST_XBox_Controller_Status]]></Declaration>
+      <Get Name="Get" Id="{dabe201a-2054-48fe-a490-6ba481e4db51}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IF THIS^.stXBoxControllerInputs.bStatus.xConnected THEN	
+	THIS^._stControllerStatus.bConnected 		:= TRUE;
+	THIS^._stControllerStatus.bDisconnected 	:= FALSE;
+	THIS^._stControllerStatus.iControllerNumber := THIS^.stXBoxControllerInputs.iControllerNumber;
+ELSE
+	THIS^._stControllerStatus.bConnected 		:= FALSE;
+	THIS^._stControllerStatus.bDisconnected 	:= TRUE;
+	THIS^._stControllerStatus.iControllerNumber := 0;
+END_IF
+
+IF THIS^.stXBoxControllerInputs.bStatus.xBattery_Type_Disconnected THEN
+	THIS^._stControllerStatus.Battery_Type := E_XBox_Controller_Battery_Types.Disconnected;
+END_IF
+
+IF THIS^.stXBoxControllerInputs.bStatus.xBattery_Type_Wired THEN
+	THIS^._stControllerStatus.Battery_Type := E_XBox_Controller_Battery_Types.Wired;
+END_IF
+
+IF THIS^.stXBoxControllerInputs.bStatus.xBattery_Type_Alkaline THEN
+	THIS^._stControllerStatus.Battery_Type := E_XBox_Controller_Battery_Types.Alkaline;
+END_IF
+
+IF THIS^.stXBoxControllerInputs.bStatus.xBattery_Type_NIMH THEN
+	THIS^._stControllerStatus.Battery_Type := E_XBox_Controller_Battery_Types.NIMH;
+END_IF
+
+IF THIS^.stXBoxControllerInputs.bStatus.xBattery_Type_Unknown THEN
+	THIS^._stControllerStatus.Battery_Type := E_XBox_Controller_Battery_Types.Unknown;
+END_IF
+
+IF THIS^.stXBoxControllerInputs.bStatus.xBattery_Level_Empty THEN
+	THIS^._stControllerStatus.Battery_Level := E_XBox_Controller_Battery_Levels.Empty;
+END_IF
+
+IF THIS^.stXBoxControllerInputs.bStatus.xBattery_Level_Low THEN
+	THIS^._stControllerStatus.Battery_Level := E_XBox_Controller_Battery_Levels.Low;
+END_IF
+
+IF THIS^.stXBoxControllerInputs.bStatus.xBattery_Level_Medium THEN
+	THIS^._stControllerStatus.Battery_Level := E_XBox_Controller_Battery_Levels.Medium;
+END_IF
+
+IF THIS^.stXBoxControllerInputs.bStatus.xBattery_Level_Full THEN
+	THIS^._stControllerStatus.Battery_Level := E_XBox_Controller_Battery_Levels.Full;
+END_IF
+
+
+P_Status REF= THIS^._stControllerStatus;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <Method Name="SetRumble" Id="{321f1c4d-4b89-4b24-88d5-c2d524fc2f0a}">
+      <Declaration><![CDATA[// Sets the rumble for the controller
+METHOD SetRumble : BOOL
+VAR_INPUT
+	// Left motor speed (0..100%)
+	fLeftMotor : REAL;
+	// Right motor speed (0..100%)
+	fRightMotor : REAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// When the method is called, check if a write is in progress
+IF THIS^._bSetRumbleEvent THEN
+	// ADS you are doing that too much
+	IF NOT THIS^._bSetRumbleEventLogged THEN
+		ADSLOGSTR( msgCtrlMask := ADSLOG_MSGTYPE_WARN, msgFmtStr := 'PLC Msg.: Command being called too often, wait for done bit: %s', strArg := 'SetRumble()');
+		THIS^._bSetRumbleEventLogged := TRUE;
+	END_IF	
+ELSE
+	// Check if the value is within range
+	IF fLeftMotor > 100 THEN
+		THIS^._stRumble.fLeftMotor := 100.0;
+	ELSIF fLeftMotor < 0 THEN
+		THIS^._stRumble.fLeftMotor := 0.0;
+	ELSE
+		THIS^._stRumble.fLeftMotor := fLeftMotor;
+	END_IF
+	
+	// Check if the value is within range
+	IF fRightMotor > 100 THEN
+		THIS^._stRumble.fRightMotor := 100.0;
+	ELSIF fRightMotor < 0 THEN
+		THIS^._stRumble.fRightMotor := 0.0;
+	ELSE
+		THIS^._stRumble.fRightMotor := fRightMotor;
+	END_IF
+	
+	//Reset all status for the command
+	THIS^.P_SetRumble.bDone := FALSE;
+	THIS^.P_SetRumble.bBusy := FALSE;
+	THIS^.P_SetRumble.bError := FALSE;
+
+	// Set the high bit on the write command
+	THIS^._bSetRumbleEvent := TRUE;
+END_IF
+
+// If it's done, set the current even in progress to false
+IF P_SetRumble.bDone THEN
+	THIS^._bSetRumbleEvent := FALSE;
+END_IF
+
+// Event Received
+SetRumble := THIS^._bSetRumbleEvent;
+
+]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_XBox_Controller">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Controller.Cycle">
+      <LineId Id="41" Count="0" />
+      <LineId Id="6" Count="8" />
+      <LineId Id="16" Count="1" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="36" Count="1" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="19" Count="8" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="46" Count="0" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="49" Count="8" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="94" Count="0" />
+      <LineId Id="97" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="90" Count="0" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="91" Count="0" />
+      <LineId Id="95" Count="0" />
+      <LineId Id="69" Count="1" />
+      <LineId Id="98" Count="2" />
+      <LineId Id="77" Count="9" />
+      <LineId Id="89" Count="0" />
+      <LineId Id="88" Count="0" />
+      <LineId Id="59" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Controller.FB_init">
+      <LineId Id="7" Count="0" />
+      <LineId Id="15" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Controller.P_Buttons.Get">
+      <LineId Id="2" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="27" Count="2" />
+      <LineId Id="17" Count="9" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="33" Count="12" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="48" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Controller.P_Left_Joystick.Get">
+      <LineId Id="5" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="39" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Controller.P_Left_Trigger.Get">
+      <LineId Id="5" Count="3" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="11" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Controller.P_Right_Joystick.Get">
+      <LineId Id="13" Count="6" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Controller.P_Right_Trigger.Get">
+      <LineId Id="13" Count="4" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Controller.P_SetRumble.Get">
+      <LineId Id="6" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Controller.P_Status.Get">
+      <LineId Id="5" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="35" Count="1" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="37" Count="1" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="45" Count="1" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="58" Count="2" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="62" Count="1" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="65" Count="1" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="69" Count="2" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="74" Count="1" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="76" Count="1" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="79" Count="2" />
+      <LineId Id="78" Count="0" />
+      <LineId Id="83" Count="2" />
+      <LineId Id="82" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="41" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Controller.SetRumble">
+      <LineId Id="154" Count="0" />
+      <LineId Id="145" Count="1" />
+      <LineId Id="184" Count="1" />
+      <LineId Id="187" Count="0" />
+      <LineId Id="186" Count="0" />
+      <LineId Id="147" Count="0" />
+      <LineId Id="162" Count="6" />
+      <LineId Id="156" Count="0" />
+      <LineId Id="161" Count="0" />
+      <LineId Id="169" Count="7" />
+      <LineId Id="178" Count="2" />
+      <LineId Id="157" Count="0" />
+      <LineId Id="181" Count="1" />
+      <LineId Id="177" Count="0" />
+      <LineId Id="148" Count="1" />
+      <LineId Id="155" Count="0" />
+      <LineId Id="150" Count="2" />
+      <LineId Id="142" Count="0" />
+      <LineId Id="183" Count="0" />
+      <LineId Id="111" Count="0" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="109" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

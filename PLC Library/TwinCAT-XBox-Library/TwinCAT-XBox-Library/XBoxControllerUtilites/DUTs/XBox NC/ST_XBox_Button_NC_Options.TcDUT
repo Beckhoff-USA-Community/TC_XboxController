@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="ST_XBox_Button_NC_Options" Id="{9a0908db-7ec5-43c3-9a84-5d85c95c7676}">
+    <Declaration><![CDATA[TYPE ST_XBox_Button_NC_Options :
+STRUCT
+	// Inverts the direction of the axis
+	bInverted : BOOL := FALSE;
+	// Maximum Feedrate
+	fMaxOverride : LREAL := 100.0;
+	// Ramped Feedrate - Increase the feedrate over time of button pressed
+	bRampedOverride : BOOL := TRUE;
+	// Ramp Step - How often to increase override as button is pressed
+	tRampStepTime : TIME := T#100MS;
+	// Ramp Step Factor - The % override to step at each time period
+	iRampStepFactor : INT := 5;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

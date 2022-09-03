@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="MAIN" Id="{a9d3af89-b721-4444-bf44-98f3205fc2f1}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	XBoxController : FB_XBox_Controller('',1);
+	
+	BatteryType: XBoxControllerUtilities.E_XBox_Controller_Battery_Types;
+	BatteryLevel: XBoxControllerUtilities.E_XBox_Controller_Battery_Levels;
+	LeftJoystick: XBoxControllerUtilities.ST_XBox_Controller_Joystick;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[XBoxController.Cycle();
+
+
+LeftJoystick := XBoxController.P_Left_Joystick;
+
+BatteryType := XBoxController.P_Status.Battery_Type;
+BatteryLevel := XBoxController.P_Status.Battery_Level;
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="2" Count="0" />
+      <LineId Id="14" Count="1" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="10" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

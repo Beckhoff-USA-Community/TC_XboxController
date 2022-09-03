@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="F_GetVersion" Id="{3f24c814-eb15-4b61-b747-43f8ca2be1c8}" SpecialFunc="None">
+    <Declaration><![CDATA[// This function has been automatically generated from the project information.
+{attribute 'signature_flag' := '1073741824'}
+{attribute 'TcGenerated'}
+{attribute 'no-analysis'}
+FUNCTION F_GetVersion : ST_LibVersion
+VAR_INPUT
+	
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[F_GetVersion.iMajor := 1;
+F_GetVersion.iMinor := 0;
+F_GetVersion.iBuild := 0;
+F_GetVersion.iRevision := 0;
+F_GetVersion.sVersion := '1.0';
+F_GetVersion.nFlags := 1;
+]]></ST>
+    </Implementation>
+    <LineIds Name="F_GetVersion">
+      <LineId Id="10" Count="5" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

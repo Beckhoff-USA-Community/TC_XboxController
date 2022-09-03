@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="ST_XBox_Controller_DPad" Id="{886ad096-e16d-4cf0-bc33-bcbd6961114c}">
+    <Declaration><![CDATA[TYPE ST_XBox_Controller_DPad :
+STRUCT
+	// Up Button on DPad
+	bUp  		: BOOL;
+	// Down Button on DPad
+    bDown  		: BOOL;
+	// Left Button on DPad
+    bLeft  		: BOOL;
+	// Right Button on DPad
+    bRight  	: BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

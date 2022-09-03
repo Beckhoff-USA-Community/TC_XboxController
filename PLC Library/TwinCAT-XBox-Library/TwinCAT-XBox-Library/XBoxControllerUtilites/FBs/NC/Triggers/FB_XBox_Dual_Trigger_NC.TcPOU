@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_XBox_Dual_Trigger_NC" Id="{16d3365d-4444-435f-be81-7160619d196c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_XBox_Dual_Trigger_NC
+VAR
+	// Axis Control Blocks
+	_Trigger_NC			: FB_XBox_Single_Trigger_NC;
+	_rtJogEnable		: R_TRIG;
+	_ftJogEnable		: F_TRIG;
+	_fPrevOverride		: UDINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="FB_init" Id="{a4c499a7-039e-485f-81d4-8e10ddf440f7}">
+      <Declaration><![CDATA[METHOD FB_init : BOOL
+VAR_INPUT
+	bInitRetains : BOOL; // if TRUE, the retain variables are initialized (warm start / cold start)
+	bInCopyCode : BOOL;  // if TRUE, the instance afterwards gets moved into the copy code (online change)
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Jog" Id="{ec5ca649-4541-4424-ad03-2079a289c9fd}">
+      <Declaration><![CDATA[METHOD Jog
+VAR_INPUT
+	bEnable			: BOOL;	
+	fLeft_Trigger	: LREAL;
+	fRight_Trigger	: LREAL;
+	Axis			: REFERENCE TO Axis_Ref;
+	stOptions		: ST_XBox_Trigger_NC_Options;
+END_VAR
+VAR	
+	stTrigOptions		: ST_XBox_Trigger_NC_Options;
+	fTriggerCommand		: LREAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Rising edge trigger of the block enable
+_rtJogEnable(CLK := bEnable);
+// Falling edge trigger of the block enable
+_ftJogEnable(CLK := bEnable);
+
+IF __ISVALIDREF(Axis) THEN
+	// Rising edge trigger of the block enable
+	IF _rtJogEnable.Q THEN
+		// Save the current override value before jogging
+		THIS^._fPrevOverride := Axis.PlcToNc.Override;
+	END_IF
+	
+	// Figure out what direction the axis should move
+	IF fLeft_Trigger > fRight_Trigger THEN
+		fTriggerCommand := fLeft_Trigger;
+		IF NOT stOptions.bInverted THEN
+			stTrigOptions.bInverted := FALSE;
+		ELSE
+			stTrigOptions.bInverted := TRUE;
+		END_IF
+	ELSIF fRight_Trigger > fLeft_Trigger THEN
+		fTriggerCommand := fRight_Trigger;
+		IF NOT stOptions.bInverted THEN
+			stTrigOptions.bInverted := TRUE;
+		ELSE
+			stTrigOptions.bInverted := FALSE;
+		END_IF
+	ELSE
+		fTriggerCommand := 0;
+	END_IF
+	stTrigOptions.fMaxOverride := stOptions.fMaxOverride;
+	// Jog the axis
+	_Trigger_NC.Jog(bEnable:= bEnable, fTrigger:= fTriggerCommand, Axis:= Axis, stOptions:= stTrigOptions);
+	
+	
+	// Falling edge trigger of the block enable
+	IF _ftJogEnable.Q THEN
+		// Restore the past override value before enable
+		Axis.PlcToNc.Override := THIS^._fPrevOverride;
+	END_IF
+END_IF
+
+
+
+
+
+
+
+]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_XBox_Dual_Trigger_NC">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Dual_Trigger_NC.FB_init">
+      <LineId Id="7" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Dual_Trigger_NC.Jog">
+      <LineId Id="69" Count="2" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="74" Count="3" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="78" Count="0" />
+      <LineId Id="109" Count="0" />
+      <LineId Id="86" Count="1" />
+      <LineId Id="98" Count="0" />
+      <LineId Id="101" Count="1" />
+      <LineId Id="99" Count="1" />
+      <LineId Id="89" Count="1" />
+      <LineId Id="104" Count="3" />
+      <LineId Id="103" Count="0" />
+      <LineId Id="94" Count="1" />
+      <LineId Id="88" Count="0" />
+      <LineId Id="92" Count="0" />
+      <LineId Id="108" Count="0" />
+      <LineId Id="29" Count="1" />
+      <LineId Id="79" Count="0" />
+      <LineId Id="81" Count="4" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="33" Count="2" />
+      <LineId Id="39" Count="1" />
+      <LineId Id="50" Count="1" />
+      <LineId Id="6" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

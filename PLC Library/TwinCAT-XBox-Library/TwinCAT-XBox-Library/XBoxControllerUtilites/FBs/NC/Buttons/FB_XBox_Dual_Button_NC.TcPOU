@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_XBox_Dual_Button_NC" Id="{58bfdfc1-d500-4df4-9636-b1b46fc4c0d8}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_XBox_Dual_Button_NC
+VAR
+	// Axis Control Blocks
+	_Button_NC			: FB_XBox_Single_Button_NC;
+	_rtJogEnable		: R_TRIG;
+	_ftJogEnable		: F_TRIG;
+	_fPrevOverride		: UDINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="FB_init" Id="{a69fe7e9-3c91-4984-9f2e-dcaebc222cfd}">
+      <Declaration><![CDATA[METHOD FB_init : BOOL
+VAR_INPUT
+	bInitRetains : BOOL; // if TRUE, the retain variables are initialized (warm start / cold start)
+	bInCopyCode : BOOL;  // if TRUE, the instance afterwards gets moved into the copy code (online change)
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Jog" Id="{1876cc87-22de-48a9-8f4c-cf0db303b999}">
+      <Declaration><![CDATA[METHOD Jog : BOOL
+VAR_INPUT
+	bEnable				: BOOL;	
+	bForward_Button		: BOOL;
+	bBackwards_Button	: BOOL;
+	Axis				: REFERENCE TO Axis_Ref;
+	stOptions			: ST_XBox_Button_NC_Options;
+END_VAR
+VAR	
+	stButtonOptions		: ST_XBox_Button_NC_Options;
+	bButtonCommand		: BOOL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Rising edge trigger of the block enable
+_rtJogEnable(CLK := bEnable);
+// Falling edge trigger of the block enable
+_ftJogEnable(CLK := bEnable);
+
+IF __ISVALIDREF(Axis) THEN
+	// Rising edge trigger of the block enable
+	IF _rtJogEnable.Q THEN
+		// Save the current override value before jogging
+		THIS^._fPrevOverride := Axis.PlcToNc.Override;
+	END_IF
+	
+	// Figure out what direction the axis should move
+	IF bForward_Button AND bBackwards_Button THEN
+		bButtonCommand := FALSE;
+	ELSIF bForward_Button THEN
+		bButtonCommand := bForward_Button;
+		IF NOT stOptions.bInverted THEN
+			stButtonOptions.bInverted := FALSE;
+		ELSE
+			stButtonOptions.bInverted := TRUE;
+		END_IF
+	ELSIF bBackwards_Button THEN
+		bButtonCommand := bBackwards_Button;
+		IF NOT stOptions.bInverted THEN
+			stButtonOptions.bInverted := TRUE;
+		ELSE
+			stButtonOptions.bInverted := FALSE;
+		END_IF
+	ELSE
+		bButtonCommand := FALSE;
+	END_IF
+	
+	stButtonOptions.bRampedOverride := stOptions.bRampedOverride;
+	stButtonOptions.fMaxOverride := stOptions.fMaxOverride;
+	stButtonOptions.iRampStepFactor := stOptions.iRampStepFactor;
+	stButtonOptions.tRampStepTime := stOptions.tRampStepTime;
+	
+	// Jog the axis
+	_Button_NC.Jog(bEnable:= bEnable, bButton:= bButtonCommand, Axis:= Axis, stOptions:= stButtonOptions);
+	
+	// Falling edge trigger of the block enable
+	IF _ftJogEnable.Q THEN
+		// Restore the past override value before enable
+		Axis.PlcToNc.Override := THIS^._fPrevOverride;
+	END_IF
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_XBox_Dual_Button_NC">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Dual_Button_NC.FB_init">
+      <LineId Id="7" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_XBox_Dual_Button_NC.Jog">
+      <LineId Id="130" Count="12" />
+      <LineId Id="182" Count="1" />
+      <LineId Id="143" Count="16" />
+      <LineId Id="184" Count="4" />
+      <LineId Id="160" Count="1" />
+      <LineId Id="163" Count="7" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="ST_XBox_Dual_Directional_Joystick_NC_Options" Id="{33988ec7-80f6-4620-9e26-ff99c54086ea}">
+    <Declaration><![CDATA[TYPE ST_XBox_Dual_Directional_Joystick_NC_Options :
+STRUCT
+	// Inverts the direction of the X axis
+	bInverted_X : BOOL := FALSE;
+	// Inverts the direction of the Y axis
+	bInverted_Y : BOOL := FALSE;
+	// Maximum Feedrate X Axis
+	fMaxOverride_X : LREAL := 100.0;
+	// Maximum Feedrate Y Axis
+	fMaxOverride_Y : LREAL := 100.0;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
