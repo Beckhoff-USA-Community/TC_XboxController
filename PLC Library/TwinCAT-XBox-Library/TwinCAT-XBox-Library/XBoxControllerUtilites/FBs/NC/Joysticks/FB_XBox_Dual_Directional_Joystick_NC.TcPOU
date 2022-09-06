@@ -26,7 +26,7 @@ END_VAR
       <Declaration><![CDATA[METHOD Jog
 VAR_INPUT
 	bEnable			: BOOL;	
-	stJoytsick		: REFERENCE TO ST_XBox_Controller_Joystick;
+	stJoystick		: REFERENCE TO ST_XBox_Controller_Joystick;
 	X_Axis			: REFERENCE TO Axis_Ref;
 	Y_Axis			: REFERENCE TO Axis_Ref;
 	stOptions		: ST_XBox_Dual_Directional_Joystick_NC_Options;
@@ -37,16 +37,16 @@ VAR
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[IF __ISVALIDREF(stJoytsick) AND __ISVALIDREF(X_Axis) AND __ISVALIDREF(Y_Axis) THEN
+        <ST><![CDATA[IF __ISVALIDREF(stJoystick) AND __ISVALIDREF(X_Axis) AND __ISVALIDREF(Y_Axis) THEN
 	// Call the X-Axis Joystick
 	X_Axis_Options.bInverted := stOptions.bInverted_X;
 	X_Axis_Options.fMaxOverride := stOptions.fMaxOverride_X;
-	_JoystickNC_X.Jog(bEnable:= bEnable, fJoytsick:= stJoytsick.fX, Axis:= X_Axis, stOptions:= X_Axis_Options);
+	_JoystickNC_X.Jog(bEnable:= bEnable, fJoystick:= stJoystick.fX, Axis:= X_Axis, stOptions:= X_Axis_Options);
 	
 	// Call the Y-Axis Joystick
 	Y_Axis_Options.bInverted := stOptions.bInverted_Y;
 	Y_Axis_Options.fMaxOverride := stOptions.fMaxOverride_Y;
-	_JoystickNC_Y.Jog(bEnable:= bEnable, fJoytsick:= stJoytsick.fY, Axis:= Y_Axis, stOptions:= Y_Axis_Options);
+	_JoystickNC_Y.Jog(bEnable:= bEnable, fJoystick:= stJoystick.fY, Axis:= Y_Axis, stOptions:= Y_Axis_Options);
 END_IF
 ]]></ST>
       </Implementation>

@@ -1,0 +1,95 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-XBox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-XBox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-XBox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj",
+        "projectName": "ADS-Controller-Server",
+        "projectPath": "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-XBox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj",
+        "packagesPath": "C:\\Users\\John Helfrich\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-XBox-Controller-Service\\ADS-Controller-Server\\obj\\publish\\win-x64\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\John Helfrich\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\TwinCAT\\Functions\\TE2000-HMI-Engineering\\Infrastructure\\Packages": {},
+          "C:\\TwinCAT\\Functions\\TE2000-HMI-Engineering\\References": {},
+          "C:\\TwinCAT\\Functions\\TF5850-TC3-XTS-Technology\\TcXtsHmiControl": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Beckhoff.TwinCAT.Ads.Server": {
+              "target": "Package",
+              "version": "[6.0.90, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Hosting.WindowsServices": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<TcBootProject CreateTime="2022-09-02T17:02:40">
+<TcBootProject CreateTime="2022-09-06T13:31:37">
 	<System>
 		<LockedMemSize>33554432</LockedMemSize>
 		<AffinityMask>#x8</AffinityMask>
@@ -119,7 +119,7 @@
 	<ProjectInfo>
 		<ProjectName>TwinCAT-XBox-Library</ProjectName>
 		<ProjectGuid>{C92FF50A-DB6C-49AF-8B50-291674774EB6}</ProjectGuid>
-		<ConfigurationFile>C:\Users\John Helfrich\source\repos\TwinCAT-XBox-Controller-Service\TwinCAT-XBox-Controller-Service\PLCLibraryTesting\TwinCAT-XBox-Library\TwinCAT-XBox-Library\TwinCAT-XBox-Library.tsproj</ConfigurationFile>
+		<ConfigurationFile>C:\Users\John Helfrich\Documents\GitHub\TwinCAT-XBox-Controller-Service\PLC Library\TwinCAT-XBox-Library\TwinCAT-XBox-Library\TwinCAT-XBox-Library.tsproj</ConfigurationFile>
 		<DataTypes/>
 		<PlcProjects/>
 		<Tasks/>

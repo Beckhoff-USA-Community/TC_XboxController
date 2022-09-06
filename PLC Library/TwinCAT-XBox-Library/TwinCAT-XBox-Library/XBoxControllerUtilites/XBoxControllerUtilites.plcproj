@@ -15,7 +15,7 @@
     <Implicit_KindOfTask>{ec33f40a-38b1-4f47-b035-4948881af551}</Implicit_KindOfTask>
     <Implicit_Jitter_Distribution>{673d9bc9-90e3-4e65-bbc4-0c8a1ffdd8f1}</Implicit_Jitter_Distribution>
     <LibraryReferences>{b29f5ee5-d38d-497f-ae98-ee34c52a5f1c}</LibraryReferences>
-    <Released>true</Released>
+    <Released>false</Released>
     <Title>XBoxControllerUtilities</Title>
     <ProjectVersion>1.0</ProjectVersion>
     <Author>John Helfrich</Author>

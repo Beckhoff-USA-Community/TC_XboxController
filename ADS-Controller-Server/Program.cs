@@ -19,11 +19,22 @@ namespace TwinCAT_XBox_Controller_Service
             CreateHostBuilder(args).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
+        public static IHostBuilder CreateHostBuilder(string[] args) => 
             Host.CreateDefaultBuilder(args)
+                .UseWindowsService(options =>
+                {
+                    options.ServiceName = "TwinCAT XBox Contoller Service";
+                })
                 .ConfigureServices((hostContext, services) =>
                 {
+
                     services.AddHostedService<ServerWorker>();
+                })
+                .ConfigureLogging((context, logging) =>
+                {
+                    // See: https://github.com/dotnet/runtime/issues/47303
+                    logging.AddConfiguration(
+                        context.Configuration.GetSection("Logging"));
                 });
     }
 }

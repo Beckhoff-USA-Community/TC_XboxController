@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SgxTQWl5FT6IqR943obdZdGcEsaoS5SZ61qH5h68xRMEm1k3bDp1F6oV1xZkpYBo2CDyjuF6E35fTx+ecX2GeA==",
+  "dgSpecHash": "+vSp4XKQSlkO1I3WItGO3geJt0ixJvIepDp8+tXspQt2Aj5oQU2VMKduHa/SQt8bfW91IJUNTohpb9QiBkArCQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\John Helfrich\\source\\repos\\TwinCAT-XBox-Controller-Service\\TwinCAT-XBox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj",
+  "projectFilePath": "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-XBox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\John Helfrich\\.nuget\\packages\\beckhoff.twincat.ads.abstractions\\6.0.90\\beckhoff.twincat.ads.abstractions.6.0.90.nupkg.sha512",
     "C:\\Users\\John Helfrich\\.nuget\\packages\\beckhoff.twincat.ads.server\\6.0.90\\beckhoff.twincat.ads.server.6.0.90.nupkg.sha512",
@@ -21,6 +21,7 @@
     "C:\\Users\\John Helfrich\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\6.0.0\\microsoft.extensions.filesystemglobbing.6.0.0.nupkg.sha512",
     "C:\\Users\\John Helfrich\\.nuget\\packages\\microsoft.extensions.hosting\\6.0.1\\microsoft.extensions.hosting.6.0.1.nupkg.sha512",
     "C:\\Users\\John Helfrich\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\6.0.0\\microsoft.extensions.hosting.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\John Helfrich\\.nuget\\packages\\microsoft.extensions.hosting.windowsservices\\6.0.0\\microsoft.extensions.hosting.windowsservices.6.0.0.nupkg.sha512",
     "C:\\Users\\John Helfrich\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
     "C:\\Users\\John Helfrich\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\John Helfrich\\.nuget\\packages\\microsoft.extensions.logging.configuration\\6.0.0\\microsoft.extensions.logging.configuration.6.0.0.nupkg.sha512",
@@ -41,6 +42,7 @@
     "C:\\Users\\John Helfrich\\.nuget\\packages\\system.security.accesscontrol\\6.0.0\\system.security.accesscontrol.6.0.0.nupkg.sha512",
     "C:\\Users\\John Helfrich\\.nuget\\packages\\system.security.cryptography.protecteddata\\6.0.0\\system.security.cryptography.protecteddata.6.0.0.nupkg.sha512",
     "C:\\Users\\John Helfrich\\.nuget\\packages\\system.security.permissions\\6.0.0\\system.security.permissions.6.0.0.nupkg.sha512",
+    "C:\\Users\\John Helfrich\\.nuget\\packages\\system.serviceprocess.servicecontroller\\6.0.0\\system.serviceprocess.servicecontroller.6.0.0.nupkg.sha512",
     "C:\\Users\\John Helfrich\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
     "C:\\Users\\John Helfrich\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\John Helfrich\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"

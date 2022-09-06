@@ -28,7 +28,7 @@ END_VAR
       <Declaration><![CDATA[METHOD Jog
 VAR_INPUT
 	bEnable			: BOOL;	
-	fJoytsick		: LREAL;
+	fJoystick		: LREAL;
 	Axis			: REFERENCE TO Axis_Ref;
 	stOptions		: ST_XBox_Single_Directional_Joystick_NC_Options;
 END_VAR
@@ -75,11 +75,11 @@ IF _bJoggingActive THEN
 	// Check the Axis reference is valid	
 	IF __ISVALIDREF(Axis) THEN
 		// Check the direction the joystick is moving, or if in deadzone					 
-		IF fJoytsick = 0 THEN
+		IF fJoystick = 0 THEN
 			bJogForward 	:= FALSE;
 			bJogBackwards := FALSE;
 			Axis.PlcToNc.Override := 0;
-		ELSIF fJoytsick < 0 THEN
+		ELSIF fJoystick < 0 THEN
 			// Check for inversion
 			IF NOT stOptions.bInverted THEN
 				bJogForward 	:= FALSE;
@@ -89,8 +89,8 @@ IF _bJoggingActive THEN
 				bJogBackwards := FALSE;
 			END_IF
 			// Set the new override based on the directional pressure
-			Axis.PlcToNc.Override := TO_UDINT(ABS(fJoytsick * (stOptions.fMaxOverride/100)) * 10000);
-		ELSIF fJoytsick > 0 THEN
+			Axis.PlcToNc.Override := TO_UDINT(ABS(fJoystick * (stOptions.fMaxOverride/100)) * 10000);
+		ELSIF fJoystick > 0 THEN
 			// Check for inversion
 			IF NOT stOptions.bInverted THEN
 				bJogForward 	:= TRUE;
@@ -100,7 +100,7 @@ IF _bJoggingActive THEN
 				bJogBackwards := TRUE;
 			END_IF
 			// Set the new override based on the directional pressure
-			Axis.PlcToNc.Override := TO_UDINT(ABS(fJoytsick * (stOptions.fMaxOverride/100)) * 10000);
+			Axis.PlcToNc.Override := TO_UDINT(ABS(fJoystick * (stOptions.fMaxOverride/100)) * 10000);
 		END_IF
 		// Main jog call for axis
 		THIS^._mcJog(
