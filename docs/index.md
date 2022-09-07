@@ -1,6 +1,8 @@
-# Welcome to MkDocs
+# Welcome to TwinCAT XBox Controller Service
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+For repo visit [https://github.com/Beckhoff-USA-Community/TwinCAT-XBox-Controller-Service](https://github.com/Beckhoff-USA-Community/TwinCAT-XBox-Controller-Service)
+
+&nbsp;
 
 ## Commands
 
@@ -11,7 +13,9 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ## Project layout
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+```
+mkdocs.yml    # The configuration file.
+docs/
+    index.md  # The documentation homepage.
+    ...       # Other markdown pages, images and other files.
+```
