@@ -25,6 +25,7 @@ Other controller types are supported by the XInput driver for Windows, however t
 #### PC Requirements:
 
 - Windows 10 or higher
+- .Net Runtime 6.0.7 (If connected to the internet, the installer will download it for you)
 - The system running the TwinCAT XBox Controller Service needs the TwinCAT ADS Service
 
 
@@ -43,7 +44,7 @@ To use the Microsoft dongle on a Beckhoff controller, you will need to install t
 
 ## Installing the TwinCAT XBox Controller Service -
 
-Within this repo, you will find that there is an MSI installer located at **TC-XBox-Controller-Service-Installer/Release**. For ease of use, it's recommended to use this installer as opposed to building the project from scratch. This installer will install the .Net Core components, ADS server project, and also install the PLC library needed.
+Within this repo, you will find that there is an MSI installer located in the [Releases area](https://github.com/Beckhoff-USA-Community/TwinCAT-XBox-Controller-Service/releases). For ease of use, it's recommended to use this installer as opposed to building the project from scratch. This installer will install the .Net Core components, ADS server project, and also install the PLC library needed.
 
 To import the PLC library, the file will be located in <u>C:\Program Files\TcXBoxServiceProvider\TC XBox Controller Service\TwinCAT Files</u>
 
