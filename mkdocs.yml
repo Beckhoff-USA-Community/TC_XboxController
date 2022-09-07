@@ -1,0 +1,6 @@
+site_name: TwinCAT XBox Controller Service
+site_url: https://example.com/
+nav:
+    - Home: index.md
+    - About: about.md
+
