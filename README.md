@@ -46,7 +46,7 @@ To use the Microsoft dongle on a Beckhoff controller, you will need to install t
 
 Within this repo, you will find that there is an MSI installer located in the [Releases area](https://github.com/Beckhoff-USA-Community/TwinCAT-XBox-Controller-Service/releases). For ease of use, it's recommended to use this installer as opposed to building the project from scratch. This installer will install the .Net Core components, ADS server project, and also install the PLC library needed.
 
-To import the PLC library, the file will be located in <u>C:\Program Files\TcXBoxServiceProvider\TC XBox Controller Service\TwinCAT Files</u>
+To import the PLC library, the file will be located in <u>C:\Program Files\Beckhoff Community\TwinCAT XBox Controller Service\PLC Library</u>
 
 
 
