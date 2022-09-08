@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_42F7613FE4314AC7A47D314F43BAB962"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_43B3507D9C1842889618C29CA41A3AD7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -39,19 +45,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8008ED3CDA654A56AEDCCFB88239B3BD"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_883C171E99184DEA9B97C1DCEC8DDF30"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_8BAA059FA02349B2B78D8CD9CD2905C0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -64,12 +58,6 @@
         "Entry"
         {
         "MsmKey" = "8:_F13D4B5D9DF24B96A1B09EFB0D0BCC5E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_FC9D52A5B2FA4E7FA8FC3D02A0F14418"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -91,6 +79,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -179,6 +183,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_42F7613FE4314AC7A47D314F43BAB962"
+            {
+            "SourcePath" = "8:..\\Build\\PLC Library\\v1_1\\XBoxControllerUtilities.library"
+            "TargetName" = "8:XBoxControllerUtilities.library"
+            "Tag" = "8:"
+            "Folder" = "8:_9041460B92DF4986ACBA1C5E2BE29356"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_43B3507D9C1842889618C29CA41A3AD7"
             {
             "SourcePath" = "8:arcade.ico"
@@ -225,26 +249,6 @@
             "TargetName" = "8:XInputNativeLibrary.dll"
             "Tag" = "8:"
             "Folder" = "8:_C155EA8F865D493580C0D8F95A5ECBBA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8008ED3CDA654A56AEDCCFB88239B3BD"
-            {
-            "SourcePath" = "8:DotNet 6 Installer\\dotnet-runtime-6.0.8-win-x64.exe"
-            "TargetName" = "8:dotnet-runtime-6.0.8-win-x64.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_CE2502A55E5E479FB8B5748D07568D5A"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -319,26 +323,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FC9D52A5B2FA4E7FA8FC3D02A0F14418"
-            {
-            "SourcePath" = "8:..\\Build\\PLC Library\\v1_0\\XBoxControllerUtilites.library"
-            "TargetName" = "8:XBoxControllerUtilites.library"
-            "Tag" = "8:"
-            "Folder" = "8:_9041460B92DF4986ACBA1C5E2BE29356"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -386,17 +370,6 @@
                                 {
                                 }
                             }
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_CE2502A55E5E479FB8B5748D07568D5A"
-                            {
-                            "Name" = "8:DotNet Installer"
-                            "AlwaysCreate" = "11:FALSE"
-                            "Condition" = "8:"
-                            "Transitive" = "11:FALSE"
-                            "Property" = "8:_2C708453C14F4486A7B608B6454C4A6A"
-                                "Folders"
-                                {
-                                }
-                            }
                         }
                     }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_9041460B92DF4986ACBA1C5E2BE29356"
@@ -440,7 +413,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TwinCAT XBox Controller Service"
         "ProductCode" = "8:{115CA164-6BD3-4E11-B1B8-E998DB732456}"
-        "PackageCode" = "8:{E3B91B62-A2FB-4CEF-8416-ADB0526C8C16}"
+        "PackageCode" = "8:{1177FE1A-5AA4-4C93-8CC9-8B1373675027}"
         "UpgradeCode" = "8:{E91FED18-14CF-432B-AFAB-F63E2A82E7DF}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -560,7 +533,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7F1E9C323C4C46CE8384CF6A5A3F1A77"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F99EB39B24E644CABB60BA3EE9D8E8EA"
             {
             "Name" = "8:TwinCAT XBox Controller Service"
             "Arguments" = "8:"
@@ -568,10 +541,10 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_8BAA059FA02349B2B78D8CD9CD2905C0"
+            "Target" = "8:_E9A035CAAC1E4A39A200087F766D981D"
             "Folder" = "8:_F53BA054DFA24F40A62092404C585609"
             "WorkingFolder" = "8:_C155EA8F865D493580C0D8F95A5ECBBA"
-            "Icon" = "8:_43B3507D9C1842889618C29CA41A3AD7"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
@@ -973,9 +946,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_8BAA059FA02349B2B78D8CD9CD2905C0"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_E9A035CAAC1E4A39A200087F766D981D"
             {
-            "SourcePath" = "8:..\\ADS-Controller-Server\\obj\\x64\\Release\\win-x64\\apphost.exe"
+            "SourcePath" = "8:..\\ADS-Controller-Server\\obj\\x64\\Release\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_C155EA8F865D493580C0D8F95A5ECBBA"
@@ -997,7 +970,6 @@
             "OutputGroupCanonicalName" = "8:PublishItems"
             "OutputProjectGuid" = "8:{17491973-2943-4644-848E-A283C24DA2ED}"
             "ShowKeyOutput" = "11:TRUE"
-            "PublishProfilePath" = "8:Properties\\PublishProfiles\\FolderProfile.pubxml"
                 "ExcludeFilters"
                 {
                 }
