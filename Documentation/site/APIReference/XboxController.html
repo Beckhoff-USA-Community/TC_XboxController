@@ -1,0 +1,1472 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
+    
+    
+      
+        <title>Xbox Controller - TwinCAT Xbox Controller Service Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6b80c2a2.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Arial";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../style.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fb_xbox_controller" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="TwinCAT Xbox Controller Service Documentation" class="md-header__button md-logo" aria-label="TwinCAT Xbox Controller Service Documentation" data-md-component="logo">
+      
+  <img src="../Images/Controller.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TwinCAT Xbox Controller Service Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Xbox Controller
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_3" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="light-mode" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Beckhoff-USA-Community/TwinCAT-Xbox-Controller-Service" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    TC Xbox Project GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../index.html" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../GettingStarted/Introduction.html" class="md-tabs__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Overview.html" class="md-tabs__link md-tabs__link--active">
+        API References
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="TwinCAT Xbox Controller Service Documentation" class="md-nav__button md-logo" aria-label="TwinCAT Xbox Controller Service Documentation" data-md-component="logo">
+      
+  <img src="../Images/Controller.svg" alt="logo">
+
+    </a>
+    TwinCAT Xbox Controller Service Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Beckhoff-USA-Community/TwinCAT-Xbox-Controller-Service" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    TC Xbox Project GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GettingStarted/Introduction.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GettingStarted/SystemRequirements.html" class="md-nav__link">
+        System Requirements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GettingStarted/Installation.html" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GettingStarted/FirstProgram.html" class="md-nav__link">
+        First Program
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Overview.html" class="md-nav__link">
+        API References
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          API References
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API References" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          API References
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Overview.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Primary Function Blocks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Primary Function Blocks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Primary Function Blocks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Xbox Controller
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="XboxController.html" class="md-nav__link md-nav__link--active">
+        Xbox Controller
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-a-controller" class="md-nav__link">
+    Accessing a controller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cycle-method" class="md-nav__link">
+    Cycle Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-inputs" class="md-nav__link">
+    Accessing Inputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#button-inputs" class="md-nav__link">
+    Button Inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joystick-inputs" class="md-nav__link">
+    Joystick Inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-inputs" class="md-nav__link">
+    Trigger Inputs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-status-bits" class="md-nav__link">
+    Accessing Status Bits
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing Status Bits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connection-status" class="md-nav__link">
+    Connection Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controller-number" class="md-nav__link">
+    Controller Number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#battery-type" class="md-nav__link">
+    Battery Type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#battery-level" class="md-nav__link">
+    Battery Level
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-outputs" class="md-nav__link">
+    Setting Outputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller-rumble" class="md-nav__link">
+    Controller Rumble
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duts" class="md-nav__link">
+    DUTs
+  </a>
+  
+    <nav class="md-nav" aria-label="DUTs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#st_xbox_controller_buttons" class="md-nav__link">
+    ST_Xbox_Controller_Buttons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#st_xbox_controller_dpad" class="md-nav__link">
+    ST_Xbox_Controller_DPad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#st_xbox_controller_joystick" class="md-nav__link">
+    ST_Xbox_Controller_Joystick
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#st_xbox_controller_status" class="md-nav__link">
+    ST_Xbox_Controller_Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e_xbox_controller_battery_types" class="md-nav__link">
+    E_Xbox_Controller_Battery_Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e_xbox_controller_battery_levels" class="md-nav__link">
+    E_Xbox_Controller_Battery_Levels
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Helper Function Blocks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Helper Function Blocks" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Helper Function Blocks
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NCAxisHelper.html" class="md-nav__link">
+        NC Axis Helpers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="XPlanarHelper.html" class="md-nav__link">
+        XPlanar Helpers
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-a-controller" class="md-nav__link">
+    Accessing a controller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cycle-method" class="md-nav__link">
+    Cycle Method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-inputs" class="md-nav__link">
+    Accessing Inputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#button-inputs" class="md-nav__link">
+    Button Inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joystick-inputs" class="md-nav__link">
+    Joystick Inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-inputs" class="md-nav__link">
+    Trigger Inputs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-status-bits" class="md-nav__link">
+    Accessing Status Bits
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing Status Bits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connection-status" class="md-nav__link">
+    Connection Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controller-number" class="md-nav__link">
+    Controller Number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#battery-type" class="md-nav__link">
+    Battery Type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#battery-level" class="md-nav__link">
+    Battery Level
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-outputs" class="md-nav__link">
+    Setting Outputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controller-rumble" class="md-nav__link">
+    Controller Rumble
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duts" class="md-nav__link">
+    DUTs
+  </a>
+  
+    <nav class="md-nav" aria-label="DUTs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#st_xbox_controller_buttons" class="md-nav__link">
+    ST_Xbox_Controller_Buttons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#st_xbox_controller_dpad" class="md-nav__link">
+    ST_Xbox_Controller_DPad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#st_xbox_controller_joystick" class="md-nav__link">
+    ST_Xbox_Controller_Joystick
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#st_xbox_controller_status" class="md-nav__link">
+    ST_Xbox_Controller_Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e_xbox_controller_battery_types" class="md-nav__link">
+    E_Xbox_Controller_Battery_Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e_xbox_controller_battery_levels" class="md-nav__link">
+    E_Xbox_Controller_Battery_Levels
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="fb_xbox_controller">FB_Xbox_Controller</h1>
+<p>This API Doc is to serve as a reference for the FB_Xbox_Controller function block that is included with the XboxControllerUtilities PLC library. Please visit the Getting Started section for the installation of the PLC library.</p>
+<h2 id="accessing-a-controller">Accessing a controller</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">VAR</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Create a new controller</span><span class="w"></span>
+<span class="w">    </span><span class="nx">XboxController</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">FB_Xbox_Controller</span><span class="p">(</span><span class="nx">NetID</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">iControllerNumber</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"></span>
+<span class="nx">END_VAR</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetID</td>
+<td>T_AMSNETID</td>
+<td>This is the AMS NetID of the controller that is hosting the TwinCAT Xbox Controller Service. For local, you can leave it as the default <strong>NetID := ' '</strong>.</td>
+</tr>
+<tr>
+<td>iControllerNumber</td>
+<td>UINT(1..4)</td>
+<td>This is the controller number you would like to access. Windows allocated the controllers based on the order connected. These controllers are numbered 1 to 4.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cycle-method">Cycle Method</h2>
+<p>The cycle method is a must have for using the XboxControllerUtilities library. This method polls the server to read/write data from the controller. Similar to other TwinCAT libraries like the XPlanar, it is necessary to call this method to retrieve/set I/O cyclically. In addition to this, you can stop calling the Cycle method to quit all ADS communication to the Controller Service.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Update IO</span><span class="w"></span>
+<span class="nx">XboxController</span><span class="p">.</span><span class="nx">Cycle</span><span class="p">();</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="accessing-inputs">Accessing Inputs</h2>
+<p>With the controller inputs the developer is given a choice to return the individual values, or a complex data structure. See the Button Inputs section below as a reference to each approach.</p>
+<h3 id="button-inputs"><strong>Button Inputs</strong></h3>
+<p>Access Individual Boolean Values</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">IF</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_Buttons</span><span class="p">.</span><span class="nx">bA_Button</span><span class="w"> </span><span class="nx">THEN</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Do Something</span><span class="w"></span>
+<span class="nx">END_IF</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+Alternatively, you can retrieve a full structure of all buttons</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Returns ST_Xbox_Controller_Buttons</span><span class="w"></span>
+<span class="nx">stControllerButtons</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_Buttons</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="joystick-inputs"><strong>Joystick Inputs</strong></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Returns ST_Xbox_Controller_Joystick</span><span class="w"></span>
+<span class="nx">stLeftJoystick</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_Left_Joystick</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Returns ST_Xbox_Controller_Joystick</span><span class="w"></span>
+<span class="nx">stRightJoystick</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_Right_Joystick</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Returns REAL</span><span class="w"></span>
+<span class="nx">fLeftJoystick_Y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_Left_Joystick</span><span class="p">.</span><span class="nx">fX</span><span class="p">;</span><span class="w"></span>
+<span class="nx">fLeftJoystick_X</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_Left_Joystick</span><span class="p">.</span><span class="nx">fY</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="trigger-inputs"><strong>Trigger Inputs</strong></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Returns REAL</span><span class="w"></span>
+<span class="nx">fLeftTrigger</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_Left_Trigger</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Returns REAL</span><span class="w"></span>
+<span class="nx">fRightTrigger</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_Right_Trigger</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="accessing-status-bits">Accessing Status Bits</h2>
+<p>The status bits include auxiliary inputs such as the controllers connection status, battery type, and battery level.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Returns ST_Xbox_Controller_Status</span><span class="w"></span>
+<span class="nx">stControllerStatus</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_Status</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="connection-status"><strong>Connection Status</strong></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Returns BOOL</span><span class="w"></span>
+<span class="nx">bConnected</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_Status</span><span class="p">.</span><span class="nx">bConnected</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Returns BOOL</span><span class="w"></span>
+<span class="nx">bDisconnected</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_Status</span><span class="p">.</span><span class="nx">bDisconnected</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="controller-number"><strong>Controller Number</strong></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Returns INT</span><span class="w"></span>
+<span class="nx">iControllerNumber</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_Status</span><span class="p">.</span><span class="nx">iControllerNumber</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="battery-type"><strong>Battery Type</strong></h3>
+<p>With the battery functions such as Level and Type, the status is not instant upon first call. The controller expects some buttons to be pressed or joysticks to be moved to update to the latest status. This is due to the way the Microsoft XInput DLL handles battery information updates.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Returns E_Xbox_Controller_Battery_Types</span><span class="w"></span>
+<span class="nx">eBatteryType</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_Status</span><span class="p">.</span><span class="nx">Battery_Type</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="battery-level"><strong>Battery Level</strong></h3>
+<p>Battery level is only available if the battery type is a known type</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Returns E_Xbox_Controller_Battery_Levels</span><span class="w"></span>
+<span class="nx">eBatteryLevel</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_Status</span><span class="p">.</span><span class="nx">Battery_Level</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="setting-outputs">Setting Outputs</h2>
+<h3 id="controller-rumble">Controller Rumble</h3>
+<p>For the Force Feedback (Rumble) feature, you can continuously call the method and it will set it internally upon new value. Alternatively, you can call the set method and wait for feedback that the rumble values have actually been set.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Sets rumble</span><span class="w"></span>
+<span class="nx">IF</span><span class="w"> </span><span class="nx">bSetRumble</span><span class="w"> </span><span class="nx">THEN</span><span class="w"></span>
+<span class="w">    </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">SetRumble</span><span class="p">(</span><span class="nx">fLeftMotor</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mf">50.0</span><span class="p">,</span><span class="w"> </span><span class="nx">fRightMotor</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mf">25.0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Check if the rumble has been set</span><span class="w"></span>
+<span class="w">    </span><span class="nx">IF</span><span class="w"> </span><span class="nx">XboxController</span><span class="p">.</span><span class="nx">P_SetRumble</span><span class="p">.</span><span class="nx">Done</span><span class="w"> </span><span class="nx">THEN</span><span class="w"></span>
+<span class="w">        </span><span class="nx">bSetRumble</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">FALSE</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">END_IF</span><span class="w"></span>
+<span class="nx">END_IF</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fLeftMotor</td>
+<td>REAL</td>
+<td>Value of the left vibration motor speed (0..100%)</td>
+</tr>
+<tr>
+<td>fRightMotor</td>
+<td>REAL</td>
+<td>Value of the right vibration motor speed (0..100%)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="duts">DUTs</h2>
+<h3 id="st_xbox_controller_buttons"><strong>ST_Xbox_Controller_Buttons</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DPad</td>
+<td>ST_Xbox_Controller_DPad</td>
+<td>Directional Pad Structure</td>
+</tr>
+<tr>
+<td>bStart</td>
+<td>BOOL</td>
+<td>Status of start button</td>
+</tr>
+<tr>
+<td>bBack</td>
+<td>BOOL</td>
+<td>Status of back button</td>
+</tr>
+<tr>
+<td>bLeft_Thumbstick</td>
+<td>BOOL</td>
+<td>Status of Left Thumbstick</td>
+</tr>
+<tr>
+<td>bRight_Thumbstick</td>
+<td>BOOL</td>
+<td>Status of Right Thumbstick</td>
+</tr>
+<tr>
+<td>bLeft_Shoulder</td>
+<td>BOOL</td>
+<td>Status of Left Shoulder</td>
+</tr>
+<tr>
+<td>bRight_Shoulder</td>
+<td>BOOL</td>
+<td>Status of Right Shoulder</td>
+</tr>
+<tr>
+<td>bA_Button</td>
+<td>BOOL</td>
+<td>Status of A button</td>
+</tr>
+<tr>
+<td>bB_Button</td>
+<td>BOOL</td>
+<td>Status of B button</td>
+</tr>
+<tr>
+<td>bX_Button</td>
+<td>BOOL</td>
+<td>Status of X button</td>
+</tr>
+<tr>
+<td>bY_Button</td>
+<td>BOOL</td>
+<td>Status of Y button</td>
+</tr>
+</tbody>
+</table>
+<h3 id="st_xbox_controller_dpad"><strong>ST_Xbox_Controller_DPad</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bUp</td>
+<td>BOOL</td>
+<td>Status of Up button on DPad</td>
+</tr>
+<tr>
+<td>bDown</td>
+<td>BOOL</td>
+<td>Status of Down button on DPad</td>
+</tr>
+<tr>
+<td>bLeft</td>
+<td>BOOL</td>
+<td>Status of Left button on DPad</td>
+</tr>
+<tr>
+<td>bRight</td>
+<td>BOOL</td>
+<td>Status of Right button on DPad</td>
+</tr>
+</tbody>
+</table>
+<h3 id="st_xbox_controller_joystick"><strong>ST_Xbox_Controller_Joystick</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fX</td>
+<td>REAL</td>
+<td>Joystick's X Value (-100...100%)</td>
+</tr>
+<tr>
+<td>fY</td>
+<td>REAL</td>
+<td>Joystick's Y Value (-100...100%)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="st_xbox_controller_status"><strong>ST_Xbox_Controller_Status</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iControllerNumber</td>
+<td>BOOL</td>
+<td>Controller's ID</td>
+</tr>
+<tr>
+<td>bConnected</td>
+<td>BOOL</td>
+<td>Controller is connected to the PC</td>
+</tr>
+<tr>
+<td>bDisconnected</td>
+<td>BOOL</td>
+<td>Controller is disconnected from the PC</td>
+</tr>
+<tr>
+<td>Battery_Type</td>
+<td>E_Xbox_Controller_Battery_Types</td>
+<td>Battery Type</td>
+</tr>
+<tr>
+<td>Battery_Level</td>
+<td>E_Xbox_Controller_Battery_Levels</td>
+<td>Battery Level</td>
+</tr>
+</tbody>
+</table>
+<h3 id="e_xbox_controller_battery_types"><strong>E_Xbox_Controller_Battery_Types</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Disconnected</td>
+<td>0</td>
+<td>Battery is disconnected</td>
+</tr>
+<tr>
+<td>Wired</td>
+<td>1</td>
+<td>Controller is wired type</td>
+</tr>
+<tr>
+<td>Alkaline</td>
+<td>2</td>
+<td>Battery is alkaline</td>
+</tr>
+<tr>
+<td>NIMH</td>
+<td>3</td>
+<td>Battery is nickel-metal hydride</td>
+</tr>
+<tr>
+<td>Unknown</td>
+<td>4</td>
+<td>Battery is unknown</td>
+</tr>
+</tbody>
+</table>
+<h3 id="e_xbox_controller_battery_levels"><strong>E_Xbox_Controller_Battery_Levels</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Empty</td>
+<td>0</td>
+<td>Battery is Empty or Unknown</td>
+</tr>
+<tr>
+<td>Low</td>
+<td>1</td>
+<td>Battery is at low level</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>2</td>
+<td>Battery is at medium level</td>
+</tr>
+<tr>
+<td>Full</td>
+<td>3</td>
+<td>Battery is at full level</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="Overview.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Overview
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="NCAxisHelper.html" class="md-footer__link md-footer__link--next" aria-label="Next: NC Axis Helpers" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              NC Axis Helpers
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "content.tooltips", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.2ab50757.min.js"></script>
+      
+    
+  </body>
+</html>
