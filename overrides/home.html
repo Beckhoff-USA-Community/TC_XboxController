@@ -215,30 +215,46 @@
     .md-footer-social {
         padding-top: 20px;
     }
+
+    .responsive_hero {
+    width: auto;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 1%;
+    }
+
+    .bottom-left {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    }
 </style>
 
-<!-- Main site Entry button descriptions -->
-<section class="tx-container">
-    <div class="md-grid md-typeset">
-      <div class="tx-hero">
-        <div class="tx-hero__image">
-          <img src="Images/HeroController.png" draggable="false">
-        </div>
-        <div class="tx-hero__content">
-          <h1> TwinCAT XBox Controller Service Project </h1>
-          <p>Connect your XBox controller to TwinCAT PLC quickly and elegantly</p>
-          <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | striptags }}" class="md-button md-button--primary">
-            Getting started
-          </a>
-          <a href="{{ config.repo_url }}" title="{{ lang.t('source.link.title') }}" class="md-button">
-            Go to GitHub
-          </a>
-        </div>
+<style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
+<section class="mdx-container">
+  <div class="md-grid md-typeset">
+    <div class="mdx-hero">
+      <div class="mdx-hero__image">
+        <img src="Images/HeroControllerElite.png" alt="XboxElite" draggable="false" class="responsive_hero">
       </div>
+      <div class="bottom-left">
+        <div class="mdx-hero__content">
+            <h1> TwinCAT Xbox Controller Service Project </h1>
+            <p>Connect your Xbox controller to TwinCAT PLC quickly and elegantly</p>
+            <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | striptags }}" class="md-button md-button--primary">
+            Getting started
+            </a>
+            <a href="{{ config.repo_url }}" title="{{ lang.t('source.link.title') }}" class="md-button">
+            Go to GitHub
+            </a>
+        </div>
     </div>
+    </div>
+  </div>
 </section>
-
-
 
 {% endblock %}
 {% block content %}{% endblock %}
