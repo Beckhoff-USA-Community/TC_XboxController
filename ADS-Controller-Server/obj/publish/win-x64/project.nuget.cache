@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S/ErOiODmPVx1wSBUFgEqOAguF6W1ociWzTQxy+CDrkunN4Iv+xA0MqzvqWVO1Qwv+0n1Sbk+Zp5LXFNeeC1Tg==",
+  "dgSpecHash": "BLYXuK7pHHOc4DGDiIa2kDx6tRSOtdtRc94Y0yPtG5+Ibdrrap36TZEwr5aQ1GQdgRNj8qNBCJzHrsxidAHbuw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-XBox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj",
+  "projectFilePath": "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-Xbox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\John Helfrich\\.nuget\\packages\\beckhoff.twincat.ads.abstractions\\6.0.90\\beckhoff.twincat.ads.abstractions.6.0.90.nupkg.sha512",
     "C:\\Users\\John Helfrich\\.nuget\\packages\\beckhoff.twincat.ads.server\\6.0.90\\beckhoff.twincat.ads.server.6.0.90.nupkg.sha512",

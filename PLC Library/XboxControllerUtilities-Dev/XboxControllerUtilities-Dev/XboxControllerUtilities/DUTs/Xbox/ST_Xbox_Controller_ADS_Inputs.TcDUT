@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="ST_Xbox_Controller_ADS_Inputs" Id="{22a3fc7f-b4d8-427f-9df2-4172a56756ce}">
+    <Declaration><![CDATA[TYPE ST_Xbox_Controller_ADS_Inputs :
+STRUCT
+	// Controller Number
+	iControllerNumber	: INT;
+	// Struct of Left Joystick values
+	stLeft_Joystick 	: ST_Xbox_Controller_Joystick;
+	// Struct of Right Joystick values
+	stRight_Joystick 	: ST_Xbox_Controller_Joystick;
+	// Left Trigger value
+	fLeft_Trigger 		: REAL;
+	// Right Trigger value
+	fRight_Trigger 		: REAL;
+	// Struct of individual raw button bits read from the controller
+	bButtons 			: ST_Xbox_Controller_Buttons_Bits;
+	// Struct of individual raw status bits read from the controller
+	bStatus				: ST_Xbox_Controller_State_Bits;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

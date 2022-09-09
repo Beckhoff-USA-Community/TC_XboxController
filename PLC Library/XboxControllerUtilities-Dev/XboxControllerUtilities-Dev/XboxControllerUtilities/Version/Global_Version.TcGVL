@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <GVL Name="Global_Version" Id="{3c93b8be-b8b7-087a-25e9-302e5728b21a}">
+    <Declaration><![CDATA[{attribute 'TcGenerated'}
+{attribute 'no-analysis'}
+{attribute 'linkalways'}
+// This function has been automatically generated from the project information.
+VAR_GLOBAL CONSTANT
+	{attribute 'const_non_replaced'}
+	stLibVersion_XboxControllerUtilities : ST_LibVersion := (iMajor := 1, iMinor := 2, iBuild := 0, iRevision := 0, nFlags := 1, sVersion := '1.2');
+END_VAR
+]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,23 +1,23 @@
-#include "XBoxController.h"
+#include "XboxController.h"
 
 // Link the 'Xinput' library - Important!
 #pragma comment(lib, "Xinput.lib")
 
 // Overloaded constructor
-XBoxController::XBoxController(int a_iIndex)
+XboxController::XboxController(int a_iIndex)
 {
     // Set gamepad index
     m_iGamepadIndex = a_iIndex - 1;
 }
 
 // Update gamepad state
-void XBoxController::Update()
+void XboxController::Update()
 {
     m_State = _GetState(); // Obtain current gamepad state
 }
 
 // Return gamepad state
-XINPUT_STATE XBoxController::_GetState()
+XINPUT_STATE XboxController::_GetState()
 {
     // Temporary XINPUT_STATE to return
     XINPUT_STATE GamepadState;
@@ -39,13 +39,13 @@ XINPUT_STATE XBoxController::_GetState()
 }
 
 // Return gamepad index
-int XBoxController::GetIndex()
+int XboxController::GetIndex()
 {
     return m_iGamepadIndex;
 }
 
 // Return true if the gamepad is connected
-bool XBoxController::GetConnected()
+bool XboxController::GetConnected()
 {  
     // Get the state
     DWORD Result = XInputGetState(m_iGamepadIndex, &m_State);
@@ -61,21 +61,7 @@ bool XBoxController::GetConnected()
 }
 
 // Return value of Left Joystick Y-Axis
-float XBoxController::GetLeftJoystick_Y() {
-
-    // Obtain value of the stick axis
-    short axisValue = m_State.Gamepad.sThumbLY;
-    // Check if axis is outside of deadzone
-    if (axisValue > XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE || axisValue < -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE)
-    {
-        // Return axis value, converted to a float
-        return (static_cast<float>(axisValue) / 32768.0f) * 100.0f;
-    }
-    return 0.00f;
-}
-
-// Return value of Left Joystick X-Axis
-float XBoxController::GetLeftJoystick_X() {
+float XboxController::GetLeftJoystick_Y() {
 
     // Obtain value of the stick axis
     short axisValue = m_State.Gamepad.sThumbLX;
@@ -88,11 +74,11 @@ float XBoxController::GetLeftJoystick_X() {
     return 0.00f;
 }
 
-// Return value of Right Joystick Y-Axis
-float XBoxController::GetRightJoystick_Y() {
+// Return value of Left Joystick X-Axis
+float XboxController::GetLeftJoystick_X() {
 
     // Obtain value of the stick axis
-    short axisValue = m_State.Gamepad.sThumbRY;
+    short axisValue = m_State.Gamepad.sThumbLY;
     // Check if axis is outside of deadzone
     if (axisValue > XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE || axisValue < -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE)
     {
@@ -102,8 +88,8 @@ float XBoxController::GetRightJoystick_Y() {
     return 0.00f;
 }
 
-// Return value of Right Joystick X-Axis
-float XBoxController::GetRightJoystick_X() {
+// Return value of Right Joystick Y-Axis
+float XboxController::GetRightJoystick_Y() {
 
     // Obtain value of the stick axis
     short axisValue = m_State.Gamepad.sThumbRX;
@@ -116,8 +102,22 @@ float XBoxController::GetRightJoystick_X() {
     return 0.00f;
 }
 
+// Return value of Right Joystick X-Axis
+float XboxController::GetRightJoystick_X() {
+
+    // Obtain value of the stick axis
+    short axisValue = m_State.Gamepad.sThumbRY;
+    // Check if axis is outside of deadzone
+    if (axisValue > XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE || axisValue < -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE)
+    {
+        // Return axis value, converted to a float
+        return (static_cast<float>(axisValue) / 32768.0f) * 100.0f;
+    }
+    return 0.00f;
+}
+
 // Return value of left trigger
-float XBoxController::GetLeftTrigger()
+float XboxController::GetLeftTrigger()
 {
 
     // Obtain value of left trigger
@@ -130,7 +130,7 @@ float XBoxController::GetLeftTrigger()
 }
 
 // Return value of right trigger
-float XBoxController::GetRightTrigger()
+float XboxController::GetRightTrigger()
 {
 
     // Obtain value of right trigger
@@ -143,7 +143,7 @@ float XBoxController::GetRightTrigger()
 }
 
 // Return the values of the buttons
-XBoxController::XInput_Gamepad XBoxController::GetButtons()
+XboxController::XInput_Gamepad XboxController::GetButtons()
 {
     // Zero memory
     ZeroMemory(&m_Buttons, sizeof(XInput_Gamepad));
@@ -165,7 +165,7 @@ XBoxController::XInput_Gamepad XBoxController::GetButtons()
 }
 
 // Return the values of the battery
-XBoxController::XInput_BatteryInfo XBoxController::GetBattery()
+XboxController::XInput_BatteryInfo XboxController::GetBattery()
 {
     // Temporary XINPUT_STATE to return
     XINPUT_BATTERY_INFORMATION BatteryInfo;
@@ -194,7 +194,7 @@ XBoxController::XInput_BatteryInfo XBoxController::GetBattery()
 }
 
 // Return the values of the capabilites
-XBoxController::XInput_Capabilities XBoxController::GetCapabilites()
+XboxController::XInput_Capabilities XboxController::GetCapabilites()
 {
     // Temporary XINPUT_STATE to return
     XINPUT_CAPABILITIES Capabilites;
@@ -221,7 +221,7 @@ XBoxController::XInput_Capabilities XBoxController::GetCapabilites()
 
 
 // Vibrate the gamepad (values of 0.0f to 100.0f only)
-void XBoxController::SetRumble(float fLeftMotor, float fRightMotor)
+void XboxController::SetRumble(float fLeftMotor, float fRightMotor)
 {
     // Vibration state
     XINPUT_VIBRATION VibrationState;

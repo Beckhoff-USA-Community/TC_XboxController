@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="ST_Xbox_2D_Joystick_XPlanar_Options" Id="{6c6f8a72-525b-0425-1b87-4c059633272d}">
+    <Declaration><![CDATA[TYPE ST_Xbox_2D_Joystick_XPlanar_Options :
+STRUCT
+	// Jog Mode
+	eJog_Mode 		: E_Xbox_XPlanar_JogMode := E_Xbox_XPlanar_JogMode.Slow;
+	// Jog Feedrate
+	fFeedrate	: LREAL := 100.0;
+	// Enable Fast Jog
+	bFastJog_Button : BOOL := FALSE;
+	// Enable Fast Jog
+	fFastJog_Trigger : REAL := 0.00;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

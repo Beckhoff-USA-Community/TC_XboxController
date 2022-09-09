@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace TwinCAT_XBox_Controller_Service
+namespace TwinCAT_Xbox_Controller_Service
 {
     public class ServerWorker : BackgroundService
     {
@@ -19,7 +19,7 @@ namespace TwinCAT_XBox_Controller_Service
 
         protected override async Task ExecuteAsync(CancellationToken cancel)
         {
-            AdsControllerServer server = new AdsControllerServer(25733, "XBoxAdsServer", _logger);
+            AdsControllerServer server = new AdsControllerServer(25733, "XboxAdsServer", _logger);
 
             Task[] serverTasks = new Task[1];
 

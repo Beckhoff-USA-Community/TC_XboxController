@@ -1,4 +1,4 @@
-site_name: TwinCAT XBox Controller Service Documentation
+site_name: TwinCAT Xbox Controller Service Documentation
 
 theme:
     name: material
@@ -12,13 +12,73 @@ theme:
     static_templates:
         - 404.html
 
+
+# Configuration
+theme:
+    name: material
+    custom_dir: docs/overrides  
+    # Static files
+    static_templates:
+        - 404.html    
+    # Don't include MkDocs' JavaScript
+    include_search_page: false
+    search_index_only: true 
+    # Default values, taken from mkdocs_theme.yml
+    language: en
+    features:
+        # - announce.dismiss
+        - content.code.annotate
+        # - content.tabs.link
+        - content.tooltips
+        # - header.autohide
+        # - navigation.expand
+        - navigation.indexes
+        # - navigation.instant
+        # - navigation.prune
+        # - navigation.sections
+        - navigation.tabs
+        # - navigation.tabs.sticky
+        - navigation.top
+        - navigation.tracking
+        - search.highlight
+        - search.share
+        - search.suggest
+        - toc.follow
+        # - toc.integrate
+    palette:
+
+        # Palette toggle for automatic mode
+        - media: "(prefers-color-scheme)"
+          toggle:
+            icon: material/brightness-auto
+            name: Switch to light mode
+
+        # Palette toggle for light mode
+        - media: "(prefers-color-scheme: light)"
+          scheme: light-mode 
+          toggle:
+            icon: material/brightness-7
+            name: Switch to dark mode
+
+        # Palette toggle for dark mode
+        - media: "(prefers-color-scheme: dark)"
+          scheme: slate
+          toggle:
+            icon: material/brightness-4
+            name: Switch to system preference
+            
+    font:
+        text: Arial
+        code: Roboto Mono 
+    logo: Images/Controller.svg
+
 extra_css:
     - style.css
 
 use_directory_urls: false
 
-repo_name: TC XBox Project GitHub
-repo_url: https://github.com/Beckhoff-USA-Community/TwinCAT-XBox-Controller-Service
+repo_name: TC Xbox Project GitHub
+repo_url: https://github.com/Beckhoff-USA-Community/TwinCAT-Xbox-Controller-Service
 edit_uri: ""
 
 markdown_extensions:
@@ -42,7 +102,7 @@ nav:
     - API References:
         - Overview:                 APIReference/Overview.md
         - Primary Function Blocks:
-            - XBox Controller:      APIReference/XBoxController.md
+            - Xbox Controller:      APIReference/XboxController.md
         - Helper Function Blocks:
             - NC Axis Helpers:      APIReference/NCAxisHelper.md
             - XPlanar Helpers:      APIReference/XPlanarHelper.md

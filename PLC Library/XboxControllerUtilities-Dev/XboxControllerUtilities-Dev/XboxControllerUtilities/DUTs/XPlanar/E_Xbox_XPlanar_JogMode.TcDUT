@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="E_Xbox_XPlanar_JogMode" Id="{e445b7b9-ea0c-031f-24d3-3a0485f57791}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_Xbox_XPlanar_JogMode :
+(
+	Slow			:= 0,
+	FastWithButton 	:= 1,
+	FastWithTrigger := 2
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

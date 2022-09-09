@@ -4,7 +4,7 @@ using TwinCAT.Ads;
 using TwinCAT.Ads.Server;
 
 
-namespace TwinCAT_XBox_Controller_Service
+namespace TwinCAT_Xbox_Controller_Service
 {
     public interface IServerLogger
     {

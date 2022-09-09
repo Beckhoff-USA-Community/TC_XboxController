@@ -21,12 +21,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_42F7613FE4314AC7A47D314F43BAB962"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_43B3507D9C1842889618C29CA41A3AD7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -34,6 +28,12 @@
         "Entry"
         {
         "MsmKey" = "8:_577E555673F240278E320F4B8E012018"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_74196036DD884B58B5B6C924FE9E1E58"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -183,26 +183,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_42F7613FE4314AC7A47D314F43BAB962"
-            {
-            "SourcePath" = "8:..\\Build\\PLC Library\\v1_1\\XBoxControllerUtilities.library"
-            "TargetName" = "8:XBoxControllerUtilities.library"
-            "Tag" = "8:"
-            "Folder" = "8:_9041460B92DF4986ACBA1C5E2BE29356"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_43B3507D9C1842889618C29CA41A3AD7"
             {
             "SourcePath" = "8:arcade.ico"
@@ -229,6 +209,26 @@
             "TargetName" = "8:8d560b9e-a5ee-41c6-81b9-03abaef1429e_bbaf9811ab6e5bd7f4172eb5d4abca8b7ca37277.cab"
             "Tag" = "8:"
             "Folder" = "8:_AEE1C9FBA3D541D88494F261E61F9A55"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_74196036DD884B58B5B6C924FE9E1E58"
+            {
+            "SourcePath" = "8:..\\Build\\PLC Library\\v1_2\\XboxControllerUtilities.library"
+            "TargetName" = "8:XboxControllerUtilities.library"
+            "Tag" = "8:"
+            "Folder" = "8:_9041460B92DF4986ACBA1C5E2BE29356"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -411,9 +411,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:TwinCAT XBox Controller Service"
+        "ProductName" = "8:TwinCAT Xbox Controller Service"
         "ProductCode" = "8:{115CA164-6BD3-4E11-B1B8-E998DB732456}"
-        "PackageCode" = "8:{1177FE1A-5AA4-4C93-8CC9-8B1373675027}"
+        "PackageCode" = "8:{F21192EF-22AA-4B0D-AF4F-D7E32A05D1AB}"
         "UpgradeCode" = "8:{E91FED18-14CF-432B-AFAB-F63E2A82E7DF}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -424,7 +424,7 @@
         "Manufacturer" = "8:Beckhoff Community"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:TwinCAT-XBox-Controller-Service"
+        "Title" = "8:TwinCAT-Xbox-Controller-Service"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Beckhoff USA Community"
         "Keywords" = "8:"
@@ -535,7 +535,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F99EB39B24E644CABB60BA3EE9D8E8EA"
             {
-            "Name" = "8:TwinCAT XBox Controller Service"
+            "Name" = "8:TwinCAT Xbox Controller Service"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -544,7 +544,7 @@
             "Target" = "8:_E9A035CAAC1E4A39A200087F766D981D"
             "Folder" = "8:_F53BA054DFA24F40A62092404C585609"
             "WorkingFolder" = "8:_C155EA8F865D493580C0D8F95A5ECBBA"
-            "Icon" = "8:"
+            "Icon" = "8:_43B3507D9C1842889618C29CA41A3AD7"
             "Feature" = "8:"
             }
         }

@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 
-namespace TwinCAT_XBox_Controller_Service
+namespace TwinCAT_Xbox_Controller_Service
 {
     class Program
     {
@@ -23,7 +23,7 @@ namespace TwinCAT_XBox_Controller_Service
             Host.CreateDefaultBuilder(args)
                 .UseWindowsService(options =>
                 {
-                    options.ServiceName = "TwinCAT XBox Contoller Service";
+                    options.ServiceName = "TwinCAT Xbox Contoller Service";
                 })
                 .ConfigureServices((hostContext, services) =>
                 {

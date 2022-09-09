@@ -1,0 +1,599 @@
+<?xml version="1.0"?>
+<TcEventSources Version="2">
+	<Source>
+		<GUID>{BB2A9999-102E-421A-8D3D-B0660E07B1FE}</GUID>
+		<Name LcId="1033">TcSystemEventClass</Name>
+		<Event>
+			<Id>1</Id>
+			<Message LcId="1031">Interner Fehler.</Message>
+			<Message LcId="1033">Internal error.</Message>
+		</Event>
+		<Event>
+			<Id>2</Id>
+			<Message LcId="1031">Keine Echtzeit.</Message>
+			<Message LcId="1033">No real-time.</Message>
+		</Event>
+		<Event>
+			<Id>3</Id>
+			<Message LcId="1031">Zuweisung gesperrt - Speicherfehler.</Message>
+			<Message LcId="1033">Allocation locked – memory error.</Message>
+		</Event>
+		<Event>
+			<Id>4</Id>
+			<Message LcId="1031">Postfach voll – Es konnte die ADS Nachricht nicht versendet werden. Reduzieren der Anzahl der ADS Nachrichten pro Zyklus bringt Abhilfe.</Message>
+			<Message LcId="1033">Mailbox full – the ADS message could not be sent. Reducing the number of ADS messages per cycle will help.</Message>
+		</Event>
+		<Event>
+			<Id>5</Id>
+			<Message LcId="1031">Falsches HMSG.</Message>
+			<Message LcId="1033">Wrong HMSG.</Message>
+		</Event>
+		<Event>
+			<Id>6</Id>
+			<Message LcId="1031">Ziel-Port nicht gefunden – ADS Server ist nicht gestartet oder erreichbar.</Message>
+			<Message LcId="1033">Target port not found – ADS server is not started or is not reachable.</Message>
+		</Event>
+		<Event>
+			<Id>7</Id>
+			<Message LcId="1033">Target computer not found – AMS route was not found. </Message>
+		</Event>
+		<Event>
+			<Id>8</Id>
+			<Message LcId="1031">Unbekannte Befehl-ID.</Message>
+			<Message LcId="1033">Unknown command ID.</Message>
+		</Event>
+		<Event>
+			<Id>9</Id>
+			<Message LcId="1031">Ungültige Task-ID.</Message>
+			<Message LcId="1033">Invalid task ID.</Message>
+		</Event>
+		<Event>
+			<Id>10</Id>
+			<Message LcId="1031">Kein IO.</Message>
+			<Message LcId="1033">No IO.</Message>
+		</Event>
+		<Event>
+			<Id>11</Id>
+			<Message LcId="1031">Unbekannter AMS-Befehl.</Message>
+			<Message LcId="1033">Unknown AMS command.</Message>
+		</Event>
+		<Event>
+			<Id>12</Id>
+			<Message LcId="1031">Win32 Fehler.</Message>
+			<Message LcId="1033">Win32 error.</Message>
+		</Event>
+		<Event>
+			<Id>13</Id>
+			<Message LcId="1031">Port nicht verbunden.</Message>
+			<Message LcId="1033">Port not connected.</Message>
+		</Event>
+		<Event>
+			<Id>14</Id>
+			<Message LcId="1031">Ungültige AMS-Länge.</Message>
+			<Message LcId="1033">Invalid AMS length.</Message>
+		</Event>
+		<Event>
+			<Id>15</Id>
+			<Message LcId="1031">Ungültige AMS Net ID.</Message>
+			<Message LcId="1033">Invalid AMS Net ID.</Message>
+		</Event>
+		<Event>
+			<Id>16</Id>
+			<Message LcId="1031">Installations-Level ist zu niedrig – TwinCAT 2 Lizenzfehler.</Message>
+			<Message LcId="1033">Low installation level – TwinCAT 2 license error.</Message>
+		</Event>
+		<Event>
+			<Id>17</Id>
+			<Message LcId="1031">Kein Debugging verfügbar.</Message>
+			<Message LcId="1033">No debugging available.</Message>
+		</Event>
+		<Event>
+			<Id>18</Id>
+			<Message LcId="1031">Port deaktiviert – TwinCAT System Service nicht gestartet.</Message>
+			<Message LcId="1033">Port disabled – TwinCAT system service not started.</Message>
+		</Event>
+		<Event>
+			<Id>19</Id>
+			<Message LcId="1031">Port bereits verbunden.</Message>
+			<Message LcId="1033">Port already connected.</Message>
+		</Event>
+		<Event>
+			<Id>20</Id>
+			<Message LcId="1031">AMS Sync Win32 Fehler.</Message>
+			<Message LcId="1033">AMS Sync Win32 error.</Message>
+		</Event>
+		<Event>
+			<Id>21</Id>
+			<Message LcId="1031">AMS Sync Timeout.</Message>
+			<Message LcId="1033">AMS Sync Timeout.</Message>
+		</Event>
+		<Event>
+			<Id>22</Id>
+			<Message LcId="1031">AMS Sync Fehler.</Message>
+			<Message LcId="1033">AMS Sync error.</Message>
+		</Event>
+		<Event>
+			<Id>23</Id>
+			<Message LcId="1031">Keine Index-Map für AMS Sync vorhanden.</Message>
+			<Message LcId="1033">No index map for AMS Sync available.</Message>
+		</Event>
+		<Event>
+			<Id>24</Id>
+			<Message LcId="1031">Ungültiger AMS-Port.</Message>
+			<Message LcId="1033">Invalid AMS port.</Message>
+		</Event>
+		<Event>
+			<Id>25</Id>
+			<Message LcId="1031">Kein Speicher.</Message>
+			<Message LcId="1033">No memory.</Message>
+		</Event>
+		<Event>
+			<Id>26</Id>
+			<Message LcId="1031">TCP Sendefehler.</Message>
+			<Message LcId="1033">TCP send error.</Message>
+		</Event>
+		<Event>
+			<Id>27</Id>
+			<Message LcId="1031">Host nicht erreichbar.</Message>
+			<Message LcId="1033">Host unreachable.</Message>
+		</Event>
+		<Event>
+			<Id>28</Id>
+			<Message LcId="1031">Ungültiges AMS Fragment.</Message>
+			<Message LcId="1033">Invalid AMS fragment.</Message>
+		</Event>
+		<Event>
+			<Id>29</Id>
+			<Message LcId="1031">TLS Sendefehler – Secure ADS Verbindung fehlgeschlagen.</Message>
+			<Message LcId="1033">TLS send error – secure ADS connection failed.</Message>
+		</Event>
+		<Event>
+			<Id>30</Id>
+			<Message LcId="1031">Zugriff Verweigert – Secure ADS Zugriff verweigert.</Message>
+			<Message LcId="1033">Access denied – secure ADS access denied.</Message>
+		</Event>
+	</Source>
+	<Source>
+		<GUID>{7D760066-D373-4A0C-B0F1-328B1620B0F0}</GUID>
+		<Name LcId="1033">TcGeneralAdsEventClass</Name>
+		<Event>
+			<Id>1792</Id>
+			<Message LcId="1031">Allgemeiner Gerätefehler.</Message>
+			<Message LcId="1033">General device error.</Message>
+		</Event>
+		<Event>
+			<Id>1793</Id>
+			<Message LcId="1031">Service wird vom Server nicht unterstützt.</Message>
+			<Message LcId="1033">Service is not supported by the server.</Message>
+		</Event>
+		<Event>
+			<Id>1794</Id>
+			<Message LcId="1031">Ungültige Index-Gruppe.</Message>
+			<Message LcId="1033">Invalid index group.</Message>
+		</Event>
+		<Event>
+			<Id>1795</Id>
+			<Message LcId="1031">Ungültiger Index-Offset.</Message>
+			<Message LcId="1033">Invalid index offset.</Message>
+		</Event>
+		<Event>
+			<Id>1796</Id>
+			<Message LcId="1031">Lesen oder Schreiben ist nicht gestattet.</Message>
+			<Message LcId="1033">Reading or writing is not permitted.</Message>
+		</Event>
+		<Event>
+			<Id>1797</Id>
+			<Message LcId="1031">Parametergröße ist nicht korrekt.</Message>
+			<Message LcId="1033">Parameter size is not correct.</Message>
+		</Event>
+		<Event>
+			<Id>1798</Id>
+			<Message LcId="1031">Ungültige Daten-Werte.</Message>
+			<Message LcId="1033">Invalid data value(s).</Message>
+		</Event>
+		<Event>
+			<Id>1799</Id>
+			<Message LcId="1031">Gerät ist nicht betriebsbereit.</Message>
+			<Message LcId="1033">Device is not ready to operate.</Message>
+		</Event>
+		<Event>
+			<Id>1800</Id>
+			<Message LcId="1031">Gerät ist beschäftigt.</Message>
+			<Message LcId="1033">Device is busy.</Message>
+		</Event>
+		<Event>
+			<Id>1801</Id>
+			<Message LcId="1031">Ungültiger Kontext vom Betriebssystem. Kann durch Verwendung von ADS Bausteinen in unterschiedlichen Tasks auftreten.</Message>
+			<Message LcId="1033">Invalid operating system context. This can result from use of ADS function blocks in different tasks.</Message>
+		</Event>
+		<Event>
+			<Id>1802</Id>
+			<Message LcId="1031">Nicht genügend Speicher.</Message>
+			<Message LcId="1033">Insufficient memory.</Message>
+		</Event>
+		<Event>
+			<Id>1803</Id>
+			<Message LcId="1031">Ungültige Parameter-Werte.</Message>
+			<Message LcId="1033">Invalid parameter value(s).</Message>
+		</Event>
+		<Event>
+			<Id>1804</Id>
+			<Message LcId="1031">Nicht gefunden (Dateien,...).</Message>
+			<Message LcId="1033">Not found (files, ...).</Message>
+		</Event>
+		<Event>
+			<Id>1805</Id>
+			<Message LcId="1031">Syntax-Fehler in Datei oder Befehl.</Message>
+			<Message LcId="1033">Syntax error in file or command.</Message>
+		</Event>
+		<Event>
+			<Id>1806</Id>
+			<Message LcId="1031">Objekte stimmen nicht überein.</Message>
+			<Message LcId="1033">Objects do not match.</Message>
+		</Event>
+		<Event>
+			<Id>1807</Id>
+			<Message LcId="1031">Objekt ist bereits vorhanden.</Message>
+			<Message LcId="1033">Object already exists.</Message>
+		</Event>
+		<Event>
+			<Id>1808</Id>
+			<Message LcId="1031">Symbol nicht gefunden.</Message>
+			<Message LcId="1033">Symbol was not found.</Message>
+		</Event>
+		<Event>
+			<Id>1809</Id>
+			<Message LcId="1031">Symbol-Version ist ungültig. Kann durch einen Online-Change auftreten. Erzeuge einen neuen Handle.</Message>
+			<Message LcId="1033">Invalid symbol version. This can occur due to an online change. Create a new handle.</Message>
+		</Event>
+		<Event>
+			<Id>1810</Id>
+			<Message LcId="1031">Gerät (Server) ist im ungültigen Zustand.</Message>
+			<Message LcId="1033">Device (server) is in invalid state.</Message>
+		</Event>
+		<Event>
+			<Id>1811</Id>
+			<Message LcId="1031">AdsTransMode wird nicht unterstützt.</Message>
+			<Message LcId="1033">AdsTransMode is not supported.</Message>
+		</Event>
+		<Event>
+			<Id>1812</Id>
+			<Message LcId="1031">Notification Handle ist ungültig.</Message>
+			<Message LcId="1033">Notification handle is invalid.</Message>
+		</Event>
+		<Event>
+			<Id>1813</Id>
+			<Message LcId="1031">Notification-Client nicht registriert. </Message>
+			<Message LcId="1033">Notification client is not registered.</Message>
+		</Event>
+		<Event>
+			<Id>1814</Id>
+			<Message LcId="1031">Keine weiteren Notification Handles.</Message>
+			<Message LcId="1033">No further notification handles.</Message>
+		</Event>
+		<Event>
+			<Id>1815</Id>
+			<Message LcId="1031">Größe der Notification zu groß.</Message>
+			<Message LcId="1033">Notification size too large.</Message>
+		</Event>
+		<Event>
+			<Id>1816</Id>
+			<Message LcId="1031">Gerät ist nicht initialisiert.</Message>
+			<Message LcId="1033">Device is not initialized.</Message>
+		</Event>
+		<Event>
+			<Id>1817</Id>
+			<Message LcId="1031">Gerät hat einen Timeout.</Message>
+			<Message LcId="1033">Device has a timeout.</Message>
+		</Event>
+		<Event>
+			<Id>1818</Id>
+			<Message LcId="1031">Interface Abfrage fehlgeschlagen.</Message>
+			<Message LcId="1033">Interface query failed.</Message>
+		</Event>
+		<Event>
+			<Id>1819</Id>
+			<Message LcId="1031">Falsches Interface angefordert. </Message>
+			<Message LcId="1033">Wrong interface is requested.</Message>
+		</Event>
+		<Event>
+			<Id>1820</Id>
+			<Message LcId="1031">Class-ID ist ungültig.</Message>
+			<Message LcId="1033">Class ID is invalid.</Message>
+		</Event>
+		<Event>
+			<Id>1821</Id>
+			<Message LcId="1031">Object-ID ist ungültig.</Message>
+			<Message LcId="1033">Object ID is invalid.</Message>
+		</Event>
+		<Event>
+			<Id>1822</Id>
+			<Message LcId="1031">Anforderung steht aus.</Message>
+			<Message LcId="1033">Request pending.</Message>
+		</Event>
+		<Event>
+			<Id>1823</Id>
+			<Message LcId="1031">Anforderung wird abgebrochen.</Message>
+			<Message LcId="1033">Request is aborted.</Message>
+		</Event>
+		<Event>
+			<Id>1824</Id>
+			<Message LcId="1031">Signal-Warnung.</Message>
+			<Message LcId="1033">Signal warning.</Message>
+		</Event>
+		<Event>
+			<Id>1825</Id>
+			<Message LcId="1031">Ungültiger Array-Index.</Message>
+			<Message LcId="1033">Invalid array index.</Message>
+		</Event>
+		<Event>
+			<Id>1826</Id>
+			<Message LcId="1031">Symbol ist nicht aktiv.</Message>
+			<Message LcId="1033">Symbol is not active.</Message>
+		</Event>
+		<Event>
+			<Id>1827</Id>
+			<Message LcId="1031">Zugriff verweigert.</Message>
+			<Message LcId="1033">Access denied.</Message>
+		</Event>
+		<Event>
+			<Id>1828</Id>
+			<Message LcId="1031">Fehlende Lizenz.</Message>
+			<Message LcId="1033">Missing license.</Message>
+		</Event>
+		<Event>
+			<Id>1829</Id>
+			<Message LcId="1031">Lizenz abgelaufen.</Message>
+			<Message LcId="1033">License is expired.</Message>
+		</Event>
+		<Event>
+			<Id>1830</Id>
+			<Message LcId="1031">Lizenz überschritten.</Message>
+			<Message LcId="1033">License is exceeded.</Message>
+		</Event>
+		<Event>
+			<Id>1831</Id>
+			<Message LcId="1031">Lizenz ungültig.</Message>
+			<Message LcId="1033">License is invalid.</Message>
+		</Event>
+		<Event>
+			<Id>1832</Id>
+			<Message LcId="1031">Lizenzproblem: System-ID ist ungültig.</Message>
+			<Message LcId="1033">License problem: System ID is invalid.</Message>
+		</Event>
+		<Event>
+			<Id>1833</Id>
+			<Message LcId="1031">Lizenz nicht zeitlich begrenzt.</Message>
+			<Message LcId="1033">License not limited in time.</Message>
+		</Event>
+		<Event>
+			<Id>1834</Id>
+			<Message LcId="1031">Lizenzproblem: Zeitpunkt in der Zukunft.</Message>
+			<Message LcId="1033">License problem: Time in the future.</Message>
+		</Event>
+		<Event>
+			<Id>1835</Id>
+			<Message LcId="1031">Lizenz-Zeitraum ist zu lang.</Message>
+			<Message LcId="1033">License time period is too long.</Message>
+		</Event>
+		<Event>
+			<Id>1836</Id>
+			<Message LcId="1031">Exception beim Systemstart.</Message>
+			<Message LcId="1033">Exception at system startup.</Message>
+		</Event>
+		<Event>
+			<Id>1837</Id>
+			<Message LcId="1031">Lizenz-Datei zweimal gelesen.</Message>
+			<Message LcId="1033">License file is read twice.</Message>
+		</Event>
+		<Event>
+			<Id>1838</Id>
+			<Message LcId="1031">Ungültige Signatur.</Message>
+			<Message LcId="1033">Invalid signature.</Message>
+		</Event>
+		<Event>
+			<Id>1839</Id>
+			<Message LcId="1031">Zertifikat ungültig.</Message>
+			<Message LcId="1033">Invalid certificate.</Message>
+		</Event>
+		<Event>
+			<Id>1840</Id>
+			<Message LcId="1031">Public Key vom OEM nicht bekannt.</Message>
+			<Message LcId="1033">Public key not known from OEM.</Message>
+		</Event>
+		<Event>
+			<Id>1841</Id>
+			<Message LcId="1031">Lizenz nicht gültig für diese System-ID.</Message>
+			<Message LcId="1033">License not valid for this system ID.</Message>
+		</Event>
+		<Event>
+			<Id>1842</Id>
+			<Message LcId="1031">Demo-Lizenz untersagt.</Message>
+			<Message LcId="1033">Demo license prohibited.</Message>
+		</Event>
+		<Event>
+			<Id>1843</Id>
+			<Message LcId="1031">Funktions-ID ungültig.</Message>
+			<Message LcId="1033">Invalid function ID.</Message>
+		</Event>
+		<Event>
+			<Id>1844</Id>
+			<Message LcId="1031">Außerhalb des gültigen Bereiches.</Message>
+			<Message LcId="1033">Outside the valid range.</Message>
+		</Event>
+		<Event>
+			<Id>1845</Id>
+			<Message LcId="1031">Ungültiges Alignment.</Message>
+			<Message LcId="1033">Invalid alignment.</Message>
+		</Event>
+		<Event>
+			<Id>1846</Id>
+			<Message LcId="1031">Ungültiger Plattform Level.</Message>
+			<Message LcId="1033">Invalid platform level.</Message>
+		</Event>
+		<Event>
+			<Id>1847</Id>
+			<Message LcId="1031">Kontext – Weiterleitung zum Passiv-Level.</Message>
+			<Message LcId="1033">Context – forward to passive level.</Message>
+		</Event>
+		<Event>
+			<Id>1848</Id>
+			<Message LcId="1031">Kontext – Weiterleitung zum Dispatch-Level.</Message>
+			<Message LcId="1033">Context – forward to dispatch level.</Message>
+		</Event>
+		<Event>
+			<Id>1849</Id>
+			<Message LcId="1031">Kontext – Weiterleitung zur Echtzeit.</Message>
+			<Message LcId="1033">Context – forward to real-time.</Message>
+		</Event>
+		<Event>
+			<Id>1857</Id>
+			<Message LcId="1031">Dienst enthält einen ungültigen Parameter. </Message>
+			<Message LcId="1033">Service contains an invalid parameter.</Message>
+		</Event>
+		<Event>
+			<Id>1858</Id>
+			<Message LcId="1031">Polling-Liste ist leer.</Message>
+			<Message LcId="1033">Polling list is empty.</Message>
+		</Event>
+		<Event>
+			<Id>1859</Id>
+			<Message LcId="1031">Variablen-Verbindung bereits im Einsatz.</Message>
+			<Message LcId="1033">Variable connection is already in use.</Message>
+		</Event>
+		<Event>
+			<Id>1860</Id>
+			<Message LcId="1031">Die Invoke-ID ist bereits in Benutzung.</Message>
+			<Message LcId="1033">Invoke ID is already in use.</Message>
+		</Event>
+		<Event>
+			<Id>1861</Id>
+			<Message LcId="1031">Timeout ist aufgetreten – Die Gegenstelle antwortet nicht im vorgegebenen ADS Timeout.</Message>
+			<Message LcId="1033">Timeout has occurred – the remote terminal is not responding in the specified ADS timeout.</Message>
+		</Event>
+		<Event>
+			<Id>1862</Id>
+			<Message LcId="1031">Fehler im Win32 Subsystem.</Message>
+			<Message LcId="1033">Error in Win32 subsystem</Message>
+		</Event>
+		<Event>
+			<Id>1863</Id>
+			<Message LcId="1031">Ungültiger Client Timeout-Wert.</Message>
+			<Message LcId="1033">Invalid client timeout value.</Message>
+		</Event>
+		<Event>
+			<Id>1864</Id>
+			<Message LcId="1031">Port nicht geöffnet.</Message>
+			<Message LcId="1033">Port is not open.</Message>
+		</Event>
+		<Event>
+			<Id>1865</Id>
+			<Message LcId="1031">Keine AMS Adresse.</Message>
+			<Message LcId="1033">No AMS address.</Message>
+		</Event>
+		<Event>
+			<Id>1872</Id>
+			<Message LcId="1031">Interner Fehler in Ads-Sync.</Message>
+			<Message LcId="1033">Internal error in Ads sync.</Message>
+		</Event>
+		<Event>
+			<Id>1873</Id>
+			<Message LcId="1031">Überlauf der Hash-Tabelle.</Message>
+			<Message LcId="1033">Hash table overflow.</Message>
+		</Event>
+		<Event>
+			<Id>1874</Id>
+			<Message LcId="1031">Schlüssel in der Hash-Tabelle nicht gefunden.</Message>
+			<Message LcId="1033">Key not found in hash table.</Message>
+		</Event>
+		<Event>
+			<Id>1875</Id>
+			<Message LcId="1031">Keine Symbole im Cache.</Message>
+			<Message LcId="1033">No symbols in the cache.</Message>
+		</Event>
+		<Event>
+			<Id>1876</Id>
+			<Message LcId="1031">Ungültige Antwort erhalten.</Message>
+			<Message LcId="1033">Invalid response received</Message>
+		</Event>
+		<Event>
+			<Id>1877</Id>
+			<Message LcId="1031">Sync Port ist verriegelt.</Message>
+			<Message LcId="1033">Sync port is locked.</Message>
+		</Event>
+	</Source>
+	<Source>
+		<GUID>{E759605A-2341-48FC-9F3F-C8FA405C4B24}</GUID>
+		<Name LcId="1033">TcRouterEventClass</Name>
+		<Event>
+			<Id>1280</Id>
+			<Message LcId="1031">Lockierter Speicher kann nicht zugewiesen werden.</Message>
+			<Message LcId="1033">Locked memory cannot be allocated.</Message>
+		</Event>
+		<Event>
+			<Id>1281</Id>
+			<Message LcId="1031">Die Größe des Routerspeichers konnte nicht geändert werden.</Message>
+			<Message LcId="1033">The router memory size could not be changed.</Message>
+		</Event>
+		<Event>
+			<Id>1282</Id>
+			<Message LcId="1031">Das Postfach hat die maximale Anzahl der möglichen Meldungen erreicht.</Message>
+			<Message LcId="1033">The mailbox has reached the maximum number of possible messages.</Message>
+		</Event>
+		<Event>
+			<Id>1283</Id>
+			<Message LcId="1031">Das Debug Postfach hat die maximale Anzahl der möglichen Meldungen erreicht.</Message>
+			<Message LcId="1033">The debug mailbox has reached the maximum number of possible messages.</Message>
+		</Event>
+		<Event>
+			<Id>1284</Id>
+			<Message LcId="1031">Der Porttyp ist unbekannt.</Message>
+			<Message LcId="1033">The port type is unknown.</Message>
+		</Event>
+		<Event>
+			<Id>1285</Id>
+			<Message LcId="1031">Der TwinCAT Router ist nicht initialisiert.</Message>
+			<Message LcId="1033">TwinCAT Router is not initialised.</Message>
+		</Event>
+		<Event>
+			<Id>1286</Id>
+			<Message LcId="1031">Die Portnummer ist bereits vergeben.</Message>
+			<Message LcId="1033">The port number is already assigned.</Message>
+		</Event>
+		<Event>
+			<Id>1287</Id>
+			<Message LcId="1031">Der Port ist nicht registriert.</Message>
+			<Message LcId="1033">The port is not registered.</Message>
+		</Event>
+		<Event>
+			<Id>1288</Id>
+			<Message LcId="1031">Die maximale Portanzahl ist erreicht.</Message>
+			<Message LcId="1033">The maximum number of ports has been reached.</Message>
+		</Event>
+		<Event>
+			<Id>1289</Id>
+			<Message LcId="1031">Der Port ist ungültig.</Message>
+			<Message LcId="1033">The port is invalid.</Message>
+		</Event>
+		<Event>
+			<Id>1290</Id>
+			<Message LcId="1031">Der TwinCAT Router ist nicht aktiv.</Message>
+			<Message LcId="1033">TwinCAT Router is not active.</Message>
+		</Event>
+		<Event>
+			<Id>1291</Id>
+			<Message LcId="1031">Das Postfach hat die maximale Anzahl für fragmentierte Nachrichten erreicht.</Message>
+			<Message LcId="1033">The mailbox has reached the maximum number for fragmented messages.</Message>
+		</Event>
+		<Event>
+			<Id>1292</Id>
+			<Message LcId="1031">Fragment Timeout aufgetreten.</Message>
+			<Message LcId="1033">A fragment timeout has occurred.</Message>
+		</Event>
+		<Event>
+			<Id>1293</Id>
+			<Message LcId="1031">Port wird entfernt.</Message>
+			<Message LcId="1033">The port is removed.</Message>
+		</Event>
+	</Source>
+</TcEventSources>

@@ -1,4 +1,4 @@
 ---
-title: TwinCAT XBox Controller Service Project
+title: TwinCAT Xbox Controller Service Project
 template: home.html
 ---

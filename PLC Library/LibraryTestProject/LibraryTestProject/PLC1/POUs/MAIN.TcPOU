@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="MAIN" Id="{6229c1e7-7648-4318-a777-35026c64ff5c}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	XboxController				: FB_Xbox_Controller('',1);
+	
+	XPlanarMover				: FB_XPlanarMoverStandard;
+	bEnableMover				: BOOL := TRUE;
+
+	
+	fbXbox_2D_Joystick_XPlanar	: FB_Xbox_2D_Joystick_XPlanar;
+	stOptions					: ST_Xbox_2D_Joystick_XPlanar_Options;
+	bEnableJog					: BOOL;
+	eJogMode					: E_Xbox_XPlanar_JogMode;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[XPlanarMover.Cycle();
+XboxController.Cycle();
+
+IF bEnableMover THEN
+	XPlanarMover.Enable(slogMessage := 'Enabling Mover');
+	IF XPlanarMover.P_Enable.Done THEN
+		bEnableMover := FALSE;
+	END_IF
+END_IF
+
+
+stOptions.eJog_Mode 		:= eJogMode;
+stOptions.fFastJog_Trigger 	:= XboxController.P_Left_Trigger;
+stOptions.bFastJog_Button	:= XboxController.P_Buttons.bA_Button;
+
+fbXbox_2D_Joystick_XPlanar.Jog(
+								bEnable:= bEnableJog AND XboxController.P_Status.bConnected, 
+								stJoystick:= XboxController.P_Left_Joystick, 
+								xpMover:= XPlanarMover, 
+								stOptions:= stOptions);
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="29" Count="1" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="55" Count="2" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="84" Count="0" />
+      <LineId Id="86" Count="1" />
+      <LineId Id="90" Count="1" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="43" Count="3" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="71" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

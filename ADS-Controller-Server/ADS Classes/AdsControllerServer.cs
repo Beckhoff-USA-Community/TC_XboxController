@@ -16,15 +16,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Buffers.Binary;
 
-namespace TwinCAT_XBox_Controller_Service
+namespace TwinCAT_Xbox_Controller_Service
 {
     /*
      * Extend the TcAdsServer class to implement ADS Server
      */
     public class AdsControllerServer : AdsServer
     {
-        /* XBox/ADS Input Variable Struct */
-        private struct ADS_XBox_Inputs
+        /* Xbox/ADS Input Variable Struct */
+        private struct ADS_Xbox_Inputs
         {
             public int ControllerNumber;
             public float LeftStick_Y;
@@ -42,7 +42,7 @@ namespace TwinCAT_XBox_Controller_Service
 
         /* Private Variables */
         private IServerLogger serverLogger;
-        private XBoxController[] xBoxControllers = new XBoxController[MAXIMUM_CONTROLLERS];
+        private XboxController[] xBoxControllers = new XboxController[MAXIMUM_CONTROLLERS];
 
         /* Instanstiate an ADS server with a fix ADS port assigned by the ADS router.
         */
@@ -51,7 +51,7 @@ namespace TwinCAT_XBox_Controller_Service
             serverLogger = new ServerLogger(logger);
             for (int i = 0; i < MAXIMUM_CONTROLLERS; ++i)
             {
-                xBoxControllers[i] = new XBoxController(i+1);
+                xBoxControllers[i] = new XboxController(i+1);
             }
         }
 
@@ -158,16 +158,16 @@ namespace TwinCAT_XBox_Controller_Service
             switch (indexGroup) 
             {
                 case 0x10000:
-                    result = ResultReadBytes.CreateSuccess(ConvertXBoxInputBytes(GetXboxValues(xBoxControllers[0])).AsMemory());
+                    result = ResultReadBytes.CreateSuccess(ConvertXboxInputBytes(GetXboxValues(xBoxControllers[0])).AsMemory());
                     break;
                 case 0x20000:
-                    result = ResultReadBytes.CreateSuccess(ConvertXBoxInputBytes(GetXboxValues(xBoxControllers[1])).AsMemory());
+                    result = ResultReadBytes.CreateSuccess(ConvertXboxInputBytes(GetXboxValues(xBoxControllers[1])).AsMemory());
                     break;
                 case 0x30000:
-                    result = ResultReadBytes.CreateSuccess(ConvertXBoxInputBytes(GetXboxValues(xBoxControllers[2])).AsMemory());
+                    result = ResultReadBytes.CreateSuccess(ConvertXboxInputBytes(GetXboxValues(xBoxControllers[2])).AsMemory());
                     break;
                 case 0x40000:
-                    result = ResultReadBytes.CreateSuccess(ConvertXBoxInputBytes(GetXboxValues(xBoxControllers[3])).AsMemory());
+                    result = ResultReadBytes.CreateSuccess(ConvertXboxInputBytes(GetXboxValues(xBoxControllers[3])).AsMemory());
                     break;
                 default: /* other services are not supported */
                     result = ResultReadBytes.CreateError(AdsErrorCode.DeviceInvalidGroup);        
@@ -176,9 +176,9 @@ namespace TwinCAT_XBox_Controller_Service
             return Task.FromResult(result);
         }
 
-        /* Converts the XBox Data Structure to byte array
+        /* Converts the Xbox Data Structure to byte array
          */
-        private byte[] ConvertXBoxInputBytes(ADS_XBox_Inputs xbox_input_data)
+        private byte[] ConvertXboxInputBytes(ADS_Xbox_Inputs xbox_input_data)
         {
             int size = Marshal.SizeOf(xbox_input_data);
             byte[] arr = new byte[size];
@@ -193,9 +193,9 @@ namespace TwinCAT_XBox_Controller_Service
 
         /* Call the XInput methods to get the Gamepad status
         */
-        private ADS_XBox_Inputs GetXboxValues(XBoxController xBoxController)
+        private ADS_Xbox_Inputs GetXboxValues(XboxController xBoxController)
         {
-            ADS_XBox_Inputs xBoxInputs = new ADS_XBox_Inputs();
+            ADS_Xbox_Inputs xBoxInputs = new ADS_Xbox_Inputs();
             xBoxController.Update();
             if (xBoxController.Connected)
             {

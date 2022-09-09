@@ -1,14 +1,14 @@
 
-### Hello XBox Controller
+### Hello Xbox Controller
 
-Now you are ready to start using the TwinCAT XBox Controller Service!
+Now you are ready to start using the TwinCAT Xbox Controller Service!
 
-Make sure that the XBox controller is plugged in, PLC library installed, and the service is running.To create an XBox controller connection inside the PLC, you'll instantiate a new controller like this.
+Make sure that the Xbox controller is plugged in, PLC library installed, and the service is running.To create an Xbox controller connection inside the PLC, you'll instantiate a new controller like this.
 
 ```javascript
 VAR
     // Create a new controller
-    XBoxController : FB_XBox_Controller(NetID := '', iControllerNumber := 1);
+    XboxController : FB_Xbox_Controller(NetID := '', iControllerNumber := 1);
 
     // Status of controller connection
     bIsConnected   : BOOL;
@@ -17,10 +17,10 @@ END_VAR
 
 ```javascript
 // Update all the controller I/O
-XBoxController.Cycle();
+XboxController.Cycle();
 
 // Check if controller is connected
-bIsConnected := XBoxController.P_Status.bConnected;;
+bIsConnected := XboxController.P_Status.bConnected;;
 ```
 
 ---

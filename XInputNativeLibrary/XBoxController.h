@@ -14,7 +14,7 @@
 #endif
 
 
-class XBoxController
+class XboxController
 {
 public:
     // Function prototypes
@@ -75,7 +75,7 @@ public:
 
 
     // Constructors
-    XBoxController(int a_iIndex);
+    XboxController(int a_iIndex);
 
     // Utility functions
     void Update();               // Updates the inputs for the gamepad

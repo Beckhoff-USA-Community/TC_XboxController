@@ -8,9 +8,9 @@
 - Microsoft .Net 6.0.7 Runtime (Installer will auto-download if connected to internet)
 - TwinCAT XAR
 
-## XBox Controller Requirements
+## Xbox Controller Requirements
 
-The TwinCAT XBox Controller Service uses a Microsoft XInput based DLL to access the XBox controller. This DLL is light weight and C++ based, but it there are specific controllers that it supports.
+The TwinCAT Xbox Controller Service uses a Microsoft XInput based DLL to access the Xbox controller. This DLL is light weight and C++ based, but it there are specific controllers that it supports.
 
 Controllers Supported:
 
@@ -21,12 +21,12 @@ Controllers Supported:
 
 ## Wireless or Wired Connectivity
 
-For wired connectivity the configuration is straightforward. As of initial testing, the controllers listed above all function with a simple USB-C to USB-A cable between the IPC and XBox controller.
+For wired connectivity the configuration is straightforward. As of initial testing, the controllers listed above all function with a simple USB-C to USB-A cable between the IPC and Xbox controller.
 
-For wireless connectivity, it is recommended to use the [Microsoft official XBox USB dongle.](https://www.xbox.com/en-US/accessories/adapters/wireless-adapter-windows) This dongle allows connection to 4 controllers simultaneously. To use the Microsoft dongle, you will need to install the driver manually or have the system updates enabled. Since Beckhoff CXs/IPCs have updates disabled, there is a provided driver in the MSI installer of the TwinCAT XBox Controller Service project. Follow these steps to install the driver.
+For wireless connectivity, it is recommended to use the [Microsoft official Xbox USB dongle.](https://www.xbox.com/en-US/accessories/adapters/wireless-adapter-windows) This dongle allows connection to 4 controllers simultaneously. To use the Microsoft dongle, you will need to install the driver manually or have the system updates enabled. Since Beckhoff CXs/IPCs have updates disabled, there is a provided driver in the MSI installer of the TwinCAT Xbox Controller Service project. Follow these steps to install the driver.
 
 1. Install the project MSI
-2. Locate the CAB file at *C:\Program Files\Beckhoff Community\TwinCAT XBox Controller Service\Offline Installers\Wireless Drivers*
+2. Locate the CAB file at *C:\Program Files\Beckhoff Community\TwinCAT Xbox Controller Service\Offline Installers\Wireless Drivers*
 3. Extract the CAB file (using 7-zip or other tool)
 4. Right-click -> Install on the driver
 5. Plugin dongle

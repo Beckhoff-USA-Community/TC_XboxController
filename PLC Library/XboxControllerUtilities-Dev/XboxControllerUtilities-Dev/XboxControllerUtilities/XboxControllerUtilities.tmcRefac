@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Refactors>
+  <Renames>
+    <RenamedSymbol>
+      <Type guid="2ae67c7d-7bcb-4c84-82af-47a80748457e">FB_Xbox_2D_Joystick_XPlanar</Type>
+      <From>fXvelo</From>
+      <To>_fXvelo</To>
+    </RenamedSymbol>
+    <RenamedSymbol>
+      <Type guid="2ae67c7d-7bcb-4c84-82af-47a80748457e">FB_Xbox_2D_Joystick_XPlanar</Type>
+      <From>fYvelo</From>
+      <To>_fYvelo</To>
+    </RenamedSymbol>
+    <RenamedSymbol>
+      <Type guid="2ae67c7d-7bcb-4c84-82af-47a80748457e">FB_Xbox_2D_Joystick_XPlanar</Type>
+      <From>fMvrVelo</From>
+      <To>_fMvrVelo</To>
+    </RenamedSymbol>
+    <RenamedSymbol>
+      <Type guid="2ae67c7d-7bcb-4c84-82af-47a80748457e">FB_Xbox_2D_Joystick_XPlanar</Type>
+      <From>posChangeX</From>
+      <To>_posChangeX</To>
+    </RenamedSymbol>
+    <RenamedSymbol>
+      <Type guid="2ae67c7d-7bcb-4c84-82af-47a80748457e">FB_Xbox_2D_Joystick_XPlanar</Type>
+      <From>posChangeY</From>
+      <To>_posChangeY</To>
+    </RenamedSymbol>
+    <RenamedSymbol>
+      <Type guid="2ae67c7d-7bcb-4c84-82af-47a80748457e">FB_Xbox_2D_Joystick_XPlanar</Type>
+      <From>posVector</From>
+      <To>_posVector</To>
+    </RenamedSymbol>
+    <RenamedSymbol>
+      <Type guid="2ae67c7d-7bcb-4c84-82af-47a80748457e">FB_Xbox_2D_Joystick_XPlanar</Type>
+      <From>velVector</From>
+      <To>_velVector</To>
+    </RenamedSymbol>
+    <RenamedSymbol>
+      <Type guid="2ae67c7d-7bcb-4c84-82af-47a80748457e">FB_Xbox_2D_Joystick_XPlanar</Type>
+      <From>aclVector</From>
+      <To>_aclVector</To>
+    </RenamedSymbol>
+  </Renames>
+</Refactors>

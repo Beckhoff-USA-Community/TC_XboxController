@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
-namespace TwinCAT_XBox_Controller_Service
+namespace TwinCAT_Xbox_Controller_Service
 {
-    internal class XBoxController
+    internal class XboxController
     {
         // Button Structure from XInput
         [StructLayout(LayoutKind.Sequential)]
@@ -69,7 +69,7 @@ namespace TwinCAT_XBox_Controller_Service
         };
 
         // Capabilities Info Structure from XInput
-        // These have been implemented per the Microsoft spec, but do not seem to function with XBox 360 or XBox One Controllers.
+        // These have been implemented per the Microsoft spec, but do not seem to function with Xbox 360 or Xbox One Controllers.
         // Only the Gamepad Device Type status seems to report properly
         [StructLayout(LayoutKind.Sequential)]
         public struct XInput_Capabilities
@@ -94,11 +94,11 @@ namespace TwinCAT_XBox_Controller_Service
             public bool NoNavigation;
         };
 
-        // DLL call for the creation of an XBox Controller object
+        // DLL call for the creation of an Xbox Controller object
         [DllImport("XInputNativeLibrary.dll")]
         private static extern IntPtr CreateXboxController(int playerNumber);
 
-        // DLL call for the destory of XBox Controller object
+        // DLL call for the destory of Xbox Controller object
         [DllImport("XInputNativeLibrary.dll")]
         private static extern void DeleteXboxController(IntPtr xBoxControllerPointer);
 
@@ -155,17 +155,17 @@ namespace TwinCAT_XBox_Controller_Service
         [DllImport("XInputNativeLibrary.dll")]
         private static extern void SetRumbleWrapper(IntPtr xBoxControllerPointer, float fLeftMotor, float fRightMotor);
 
-        // Internal pointer to the XBox Controller object
+        // Internal pointer to the Xbox Controller object
         private readonly IntPtr _xBoxControllerPointer;
 
 
         // Constructor
-        public XBoxController(int playerNumber)
+        public XboxController(int playerNumber)
         {
             _xBoxControllerPointer = CreateXboxController(playerNumber);
         }
         // Destructor
-        ~XBoxController()
+        ~XboxController()
         {
             DeleteXboxController(_xBoxControllerPointer);
         }

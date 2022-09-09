@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-XBox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj": {}
+    "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-Xbox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-XBox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj": {
+    "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-Xbox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-XBox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj",
+        "projectUniqueName": "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-Xbox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj",
         "projectName": "ADS-Controller-Server",
-        "projectPath": "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-XBox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj",
+        "projectPath": "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-Xbox-Controller-Service\\ADS-Controller-Server\\ADS-Controller-Server.csproj",
         "packagesPath": "C:\\Users\\John Helfrich\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-XBox-Controller-Service\\ADS-Controller-Server\\obj\\publish\\win-x64\\",
+        "outputPath": "C:\\Users\\John Helfrich\\Documents\\GitHub\\TwinCAT-Xbox-Controller-Service\\ADS-Controller-Server\\obj\\publish\\win-x64\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

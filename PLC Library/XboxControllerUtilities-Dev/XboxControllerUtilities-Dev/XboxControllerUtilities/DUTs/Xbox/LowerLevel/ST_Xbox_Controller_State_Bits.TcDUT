@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="ST_Xbox_Controller_State_Bits" Id="{ebb1c573-1dde-4789-b17e-74cabd58c005}">
+    <Declaration><![CDATA[TYPE ST_Xbox_Controller_State_Bits :
+STRUCT
+	xConnected  				: BIT;
+	xBattery_Type_Disconnected	: BIT;
+	xBattery_Type_Wired			: BIT;
+	xBattery_Type_Alkaline		: BIT;
+	xBattery_Type_NIMH			: BIT;
+	xBattery_Type_Unknown		: BIT;
+	xBattery_Level_Empty		: BIT;
+	xBattery_Level_Low			: BIT;
+	xBattery_Level_Medium		: BIT;
+	xBattery_Level_Full			: BIT;
+	
+	{attribute 'hide'}
+	xFiller10					: BIT;
+	{attribute 'hide'}
+	xFiller11					: BIT;
+	{attribute 'hide'}
+	xFiller12					: BIT;
+	{attribute 'hide'}
+	xFiller13					: BIT;
+	{attribute 'hide'}
+	xFiller14					: BIT;
+	{attribute 'hide'}
+	xFiller15					: BIT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="E_Xbox_Controller_Battery_Levels" Id="{8629e24e-2660-4f37-a73f-5543f84a5ff0}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_Xbox_Controller_Battery_Levels :
+(
+	// Battery is Empty or Unknown
+	Empty := 0,
+	// Battery is at low level
+	Low := 1,
+	// Battery is at medium level
+	Medium := 2,
+	// Battery is at full level
+	Full := 3
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

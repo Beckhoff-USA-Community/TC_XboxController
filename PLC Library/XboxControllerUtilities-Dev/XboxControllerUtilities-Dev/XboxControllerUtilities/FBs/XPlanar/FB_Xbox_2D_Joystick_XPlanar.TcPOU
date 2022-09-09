@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_Xbox_2D_Joystick_XPlanar" Id="{4e6eb62d-2734-067f-3286-7415f748b2ed}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Xbox_2D_Joystick_XPlanar
+VAR
+	_rtJogEnable			: R_TRIG;
+	_ftJogEnable			: F_TRIG;
+	_bJoggingActive			: BOOL;
+	_bExtSpEnabled			: BOOL;
+	_fbXbox_2D_Joystick_NC 	: FB_Xbox_2D_Joystick_NC;
+	
+	_fXvelo: LREAL;
+	_fYvelo: LREAL;
+	_fMvrVelo: LREAL := 0.5;
+	
+	_posChangeX: LREAL;
+	_posChangeY: LREAL;
+	_posVector: MoverVector;
+	_velVector: MoverVector;
+	_aclVector: MoverVector;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="FB_init" Id="{9bf8997b-65f9-009a-1753-768bee8a36e3}">
+      <Declaration><![CDATA[METHOD FB_init : BOOL
+VAR_INPUT
+	bInitRetains : BOOL; // if TRUE, the retain variables are initialized (warm start / cold start)
+	bInCopyCode : BOOL;  // if TRUE, the instance afterwards gets moved into the copy code (online change)
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Jog" Id="{cd63d872-fced-058e-0d7e-7c27aa9cd6ba}">
+      <Declaration><![CDATA[METHOD Jog : BOOL
+VAR_INPUT
+	// Enable command
+	bEnable			: BOOL;
+	// Joystick from controller
+	stJoystick		: REFERENCE TO ST_Xbox_Controller_Joystick;
+	// Trigger from 
+	// XPlanar Standard Mover
+	xpMover			: REFERENCE TO FB_XPlanarMoverStandard;
+	// Struct of options
+	stOptions		: ST_Xbox_2D_Joystick_XPlanar_Options;
+END_VAR
+VAR
+	mvPosition: MoverVector;
+	mvVelocity: MoverVector;
+	mvAcceleration: MoverVector;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Rising edge trigger of the block enable
+_rtJogEnable(CLK := bEnable);
+// Falling edge trigger of the block enable
+_ftJogEnable(CLK := bEnable);
+
+// Rising edge trigger of the block enable
+IF _rtJogEnable.Q THEN
+	// Copy current values
+	_posVector.x := xpMover.P_ActPosition.x;
+	_posVector.y := xpMover.P_ActPosition.y;
+	// Enable the jog methods
+	_bJoggingActive	:= TRUE;
+END_IF
+
+// Falling edge trigger of the block enable
+IF _ftJogEnable.Q THEN
+	// Disable calling to jog methods
+	_bJoggingActive := FALSE;
+END_IF
+
+IF __ISVALIDREF(xpMover) AND __ISVALIDREF(stJoystick) THEN
+	IF _bJoggingActive AND NOT _bExtSpEnabled THEN
+		// Enable the External Setpoint Generator
+		xpMover.EnableExternalSetpointGeneration(slogMessage := CONCAT('Xbox controller is connected to XPlanar Mover #: ', TO_STRING(xpMover.P_Id)), eSetpointMode := MC_EXTERNAL_SET_POSITION_MODE.Absolute);
+		IF xpMover.P_EnableExternalSetpointGeneration.Done THEN
+			_bExtSpEnabled := TRUE;
+		END_IF
+	END_IF
+	
+	IF (NOT _bJoggingActive) AND _bExtSpEnabled THEN
+		// Disable the External Setpoint Generator
+		xpMover.DisableExternalSetpointGeneration(slogMessage := CONCAT('Xbox controller is disconnected from XPlanar Mover #: ', TO_STRING(xpMover.P_Id)));
+		_bExtSpEnabled := FALSE;
+	END_IF
+	
+	// Check the Joystick reference is valid
+	IF _bJoggingActive AND _bExtSpEnabled THEN
+		//	Ext SP active - calc position change and update ExtSP Gen
+		_fXvelo := REAL_TO_LREAL(stJoystick.fX);
+		_fYvelo := REAL_TO_LREAL(stJoystick.fY);
+		
+		// Copy the feedrate
+		_fMvrVelo := stOptions.fFeedrate * 0.01;
+
+		// Slow mode velo move	
+		_posChangeX:=(_fXvelo/100.0)*_fMvrVelo;
+		_posChangeY:=(_fYvelo/100.0)*_fMvrVelo;
+		
+		// Fast mode velo move
+		IF stOptions.eJog_Mode = E_Xbox_XPlanar_JogMode.FastWithButton THEN
+			IF stOptions.bFastJog_Button THEN
+				_posChangeX:=_posChangeX + _posChangeX*2;
+				_posChangeY:=_posChangeY + _posChangeY*2;
+			END_IF
+		END_IF
+		// Fast mode velo move
+		IF stOptions.eJog_Mode = E_Xbox_XPlanar_JogMode.FastWithTrigger THEN
+			_posChangeX:=_posChangeX + _posChangeX*(stOptions.fFastJog_Trigger/100.0)*2;
+			_posChangeY:=_posChangeY + _posChangeY*(stOptions.fFastJog_Trigger/100.0)*2;
+		END_IF
+	
+		// Set the setpoints
+		_posVector.x:=_posVector.x+_posChangeX;
+		_posVector.y:=_posVector.y+_posChangeY;		
+		xpMover.SetExternalSetpointValues(_posVector, _velVector, _aclVector);
+	END_IF
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_Xbox_2D_Joystick_XPlanar">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Xbox_2D_Joystick_XPlanar.FB_init">
+      <LineId Id="7" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Xbox_2D_Joystick_XPlanar.Jog">
+      <LineId Id="244" Count="3" />
+      <LineId Id="256" Count="2" />
+      <LineId Id="414" Count="2" />
+      <LineId Id="413" Count="0" />
+      <LineId Id="265" Count="4" />
+      <LineId Id="281" Count="2" />
+      <LineId Id="391" Count="0" />
+      <LineId Id="289" Count="0" />
+      <LineId Id="347" Count="10" />
+      <LineId Id="359" Count="0" />
+      <LineId Id="361" Count="7" />
+      <LineId Id="401" Count="0" />
+      <LineId Id="409" Count="0" />
+      <LineId Id="405" Count="1" />
+      <LineId Id="402" Count="0" />
+      <LineId Id="404" Count="0" />
+      <LineId Id="403" Count="0" />
+      <LineId Id="417" Count="0" />
+      <LineId Id="372" Count="1" />
+      <LineId Id="400" Count="0" />
+      <LineId Id="375" Count="4" />
+      <LineId Id="381" Count="0" />
+      <LineId Id="399" Count="0" />
+      <LineId Id="382" Count="4" />
+      <LineId Id="388" Count="2" />
+      <LineId Id="21" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
