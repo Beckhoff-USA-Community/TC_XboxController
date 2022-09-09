@@ -199,8 +199,8 @@ END_IF
 | iControllerNumber | BOOL                              | Controller's ID                          |
 | bConnected        | BOOL                              | Controller is connected to the PC        |
 | bDisconnected     | BOOL                              | Controller is disconnected from the PC   |
-| Battery_Type      | E_Xbox_Controller_Battery_Types   | Battery Type                             |
-| Battery_Level     | E_Xbox_Controller_Battery_Levels  | Battery Level                            |
+| eBattery_Type     | E_Xbox_Controller_Battery_Types   | Battery Type                             |
+| eBattery_Level    | E_Xbox_Controller_Battery_Levels  | Battery Level                            |
 
 ### **E_Xbox_Controller_Battery_Types**
 
