@@ -20,7 +20,7 @@ For the latest documentation on installing the service and using the API, [pleas
 
 
 
-[<img src=".\Images\DocScreenshot.png" alt="DocScreenshot" style="zoom: 75%;" />](https://beckhoff-usa-community.github.io/TwinCAT-Xbox-Controller-Service/)
+[<img src=".\Images\PLCDocScreenshot.png" alt="DocScreenshot" style="zoom: 75%;" />](https://beckhoff-usa-community.github.io/TwinCAT-Xbox-Controller-Service/)
 
 
 
