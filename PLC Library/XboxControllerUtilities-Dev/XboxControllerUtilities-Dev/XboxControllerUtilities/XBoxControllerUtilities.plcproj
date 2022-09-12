@@ -17,11 +17,28 @@
     <LibraryReferences>{b29f5ee5-d38d-497f-ae98-ee34c52a5f1c}</LibraryReferences>
     <Released>true</Released>
     <Title>XboxControllerUtilities</Title>
-    <ProjectVersion>1.2</ProjectVersion>
+    <ProjectVersion>1.3</ProjectVersion>
     <Author>John Helfrich</Author>
     <Company>Beckhoff Community</Company>
     <CombineIds>true</CombineIds>
     <Description>A library to communicate with the TwinCAT Xbox Controller Service</Description>
+    <LibraryCategories>
+      <LibraryCategory>
+        <Id>{4c30be10-0c29-4796-921e-62ecfda40191}</Id>
+        <Version>1.0.0.0</Version>
+        <DefaultName>XboxControllerService</DefaultName>
+      </LibraryCategory>
+      <LibraryCategory>
+        <Id>{70943b76-e4dc-4615-95b8-28a112bda23b}</Id>
+        <Version>1.0.0.0</Version>
+        <ParentCategory>
+          <Id>{4c30be10-0c29-4796-921e-62ecfda40191}</Id>
+        </ParentCategory>
+        <DefaultName>Base</DefaultName>
+      </LibraryCategory>
+    </LibraryCategories>
+    <SelectedLibraryCategories>
+    </SelectedLibraryCategories>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="DUTs\NC" />
@@ -154,6 +171,7 @@
     <PlaceholderReference Include="Tc3_XPlanarStandard">
       <DefaultResolution>Tc3_XPlanarStandard, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc3_XPlanarStandard</Namespace>
+      <Optional>true</Optional>
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>

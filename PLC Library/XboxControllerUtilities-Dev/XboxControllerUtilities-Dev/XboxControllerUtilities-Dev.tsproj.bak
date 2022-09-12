@@ -2,7 +2,7 @@
 <TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.32">
 	<Project ProjectGUID="{BC2316D4-DA81-40C1-B7D8-3656740F70F6}" Target64Bit="true" ShowHideConfigurations="#x106">
 		<Plc>
-			<Project File="XBoxControllerUtilities.xti"/>
+			<Project File="XboxControllerUtilities.xti"/>
 		</Plc>
 	</Project>
 </TcSmProject>

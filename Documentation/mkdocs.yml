@@ -97,11 +97,11 @@ nav:
         - System Requirements:      GettingStarted/SystemRequirements.md
         - Installation:             GettingStarted/Installation.md
         - First Program:            GettingStarted/FirstProgram.md
-        - API References:           APIReference/Overview.md
-    - API References:
-        - Overview:                 APIReference/Overview.md
+        - PLC Documentation:           PLCDocs/Overview.md
+    - PLC Documentation:
+        - Overview:                 PLCDocs/Overview.md
         - Primary Function Blocks:
-            - Xbox Controller:      APIReference/XboxController.md
+            - Xbox Controller:      PLCDocs/XboxController.md
         - Helper Function Blocks:
-            - NC Axis Helpers:      APIReference/NCAxisHelper.md
-            - XPlanar Helpers:      APIReference/XPlanarHelper.md
+            - NC Axis Helpers:      PLCDocs/NCAxisHelper.md
+            - XPlanar Helpers:      PLCDocs/XPlanarHelper.md

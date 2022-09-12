@@ -33,12 +33,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_74196036DD884B58B5B6C924FE9E1E58"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_770DC4DFF6BE4976BD16C414A57BB40D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -58,6 +52,12 @@
         "Entry"
         {
         "MsmKey" = "8:_F13D4B5D9DF24B96A1B09EFB0D0BCC5E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FCD9C0E773FC4B67830C00924D9C30B8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -223,26 +223,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_74196036DD884B58B5B6C924FE9E1E58"
-            {
-            "SourcePath" = "8:..\\Build\\PLC Library\\v1_2\\XboxControllerUtilities.library"
-            "TargetName" = "8:XboxControllerUtilities.library"
-            "Tag" = "8:"
-            "Folder" = "8:_9041460B92DF4986ACBA1C5E2BE29356"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_770DC4DFF6BE4976BD16C414A57BB40D"
             {
             "SourcePath" = "8:..\\Build\\x64\\Release\\XInputNativeLibrary.dll"
@@ -309,6 +289,26 @@
             "TargetName" = "8:README.txt"
             "Tag" = "8:"
             "Folder" = "8:_AEE1C9FBA3D541D88494F261E61F9A55"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FCD9C0E773FC4B67830C00924D9C30B8"
+            {
+            "SourcePath" = "8:..\\Build\\PLC Library\\v1_3\\XboxControllerUtilities.library"
+            "TargetName" = "8:XboxControllerUtilities.library"
+            "Tag" = "8:"
+            "Folder" = "8:_9041460B92DF4986ACBA1C5E2BE29356"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
