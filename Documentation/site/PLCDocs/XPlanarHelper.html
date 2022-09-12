@@ -244,7 +244,7 @@
   
     <li class="md-tabs__item">
       <a href="Overview.html" class="md-tabs__link md-tabs__link--active">
-        API References
+        PLC Documentation
       </a>
     </li>
   
@@ -411,7 +411,7 @@
   
     <li class="md-nav__item">
       <a href="Overview.html" class="md-nav__link">
-        API References
+        PLC Documentation
       </a>
     </li>
   
@@ -451,14 +451,14 @@
       
       
         <label class="md-nav__link" for="__nav_3">
-          API References
+          PLC Documentation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="API References" data-md-level="1">
+      <nav class="md-nav" aria-label="PLC Documentation" data-md-level="1">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          API References
+          PLC Documentation
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -615,6 +615,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#caution" class="md-nav__link">
     CAUTION!
   </a>
@@ -622,11 +629,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mover-control" class="md-nav__link">
-    Mover Control
+  <a href="#mover-controls" class="md-nav__link">
+    Mover Controls
   </a>
   
-    <nav class="md-nav" aria-label="Mover Control">
+    <nav class="md-nav" aria-label="Mover Controls">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -717,6 +724,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#caution" class="md-nav__link">
     CAUTION!
   </a>
@@ -724,11 +738,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mover-control" class="md-nav__link">
-    Mover Control
+  <a href="#mover-controls" class="md-nav__link">
+    Mover Controls
   </a>
   
-    <nav class="md-nav" aria-label="Mover Control">
+    <nav class="md-nav" aria-label="Mover Controls">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -785,10 +799,12 @@
 
 
 <h1 id="xplanar-helper-functions">XPlanar Helper Functions</h1>
-<p>This API Doc is to serve as a reference for the XPlanar Helper function blocks that are included with the XboxControllerUtilities PLC library. Please visit the Getting Started section for the installation of the PLC library.</p>
+<p>This documentation is to serve as a reference for the XPlanar Helper function blocks that are included with the XboxControllerUtilities PLC library. Please visit the Getting Started section for the installation of the PLC library.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>To use the XPlanar helper function blocks, the latest version of Tc3_XPlanarStandard needs to be installed.</p>
 <h2 id="caution"><span style="color:red">CAUTION!</span></h2>
 <p>The blocks below use ExternalSetPoint commands under the hood, <span style="color:red">use at your own risk</span>. </p>
-<h2 id="mover-control">Mover Control</h2>
+<h2 id="mover-controls">Mover Controls</h2>
 <p>The following blocks are to control an FB_XPlanarMoverStandard from the Tc3_XPlanarStandardLibrary.</p>
 <h3 id="fb_xbox_2d_joystick_xplanar"><strong>FB_Xbox_2D_Joystick_XPlanar</strong></h3>
 <p>The 2D Joystick block uses a single Xbox controller joystick to move an XPlanar mover in the X and Y direction. There is an optional E_Xbox_XPlanar_JogMode input to allow Fast or Slow jogging. The Fast jogging can also be commanded via button press (instantaneous) or trigger press (ramped).</p>
