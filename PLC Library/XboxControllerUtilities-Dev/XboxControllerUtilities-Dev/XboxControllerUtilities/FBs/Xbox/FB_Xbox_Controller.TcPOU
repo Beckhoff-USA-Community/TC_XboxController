@@ -127,7 +127,8 @@ THIS^._IDXGRP := iControllerNumber * 16#10000;]]></ST>
       </Implementation>
     </Method>
     <Property Name="P_Buttons" Id="{9ecee726-55c8-4ab8-9170-a864e7a68da5}">
-      <Declaration><![CDATA[// Structure of the different active buttons
+      <Declaration><![CDATA[{attribute 'monitoring':='call'}
+// Structure of the different active buttons
 PROPERTY P_Buttons : REFERENCE TO ST_Xbox_Controller_Buttons]]></Declaration>
       <Get Name="Get" Id="{fabea6d4-f972-48bb-9b75-17006ffd152b}">
         <Declaration><![CDATA[VAR
@@ -170,7 +171,8 @@ P_Buttons REF= THIS^._stControllerButtons;]]></ST>
       </Get>
     </Property>
     <Property Name="P_Left_Joystick" Id="{33db2771-a51a-47cd-87e9-82222a82ae74}">
-      <Declaration><![CDATA[// Returns a structure of data for the XY Joystick values
+      <Declaration><![CDATA[{attribute 'monitoring':='call'}
+// Returns a structure of data for the XY Joystick values
 PROPERTY P_Left_Joystick : REFERENCE TO ST_Xbox_Controller_Joystick]]></Declaration>
       <Get Name="Get" Id="{4b140f7b-8969-4350-962e-103fcb9f7ed9}">
         <Declaration><![CDATA[VAR
@@ -189,7 +191,8 @@ P_Left_Joystick REF= THIS^._stLeftJoystick;]]></ST>
       </Get>
     </Property>
     <Property Name="P_Left_Trigger" Id="{4760222a-9195-417e-97df-e345197e8a07}">
-      <Declaration><![CDATA[// Left trigger value
+      <Declaration><![CDATA[{attribute 'monitoring':='call'}
+// Left trigger value
 PROPERTY P_Left_Trigger : REFERENCE TO REAL]]></Declaration>
       <Get Name="Get" Id="{1906a11d-9ff5-4e03-b10e-492065686575}">
         <Declaration><![CDATA[VAR
@@ -206,7 +209,8 @@ P_Left_Trigger REF= THIS^._fLeftTrigger;]]></ST>
       </Get>
     </Property>
     <Property Name="P_Right_Joystick" Id="{e8db0053-5241-40a3-8cab-5544d5c2006b}">
-      <Declaration><![CDATA[// Returns a structure of data for the XY Joystick values
+      <Declaration><![CDATA[{attribute 'monitoring':='call'}
+// Returns a structure of data for the XY Joystick values
 PROPERTY P_Right_Joystick : REFERENCE TO ST_Xbox_Controller_Joystick]]></Declaration>
       <Get Name="Get" Id="{0e92480b-9055-499c-897c-becbad0c9d16}">
         <Declaration><![CDATA[VAR
@@ -225,7 +229,8 @@ P_Right_Joystick REF= THIS^._stRightJoystick;]]></ST>
       </Get>
     </Property>
     <Property Name="P_Right_Trigger" Id="{78732f9d-af31-4e4c-821e-1f8189aa19ee}">
-      <Declaration><![CDATA[// Right trigger value
+      <Declaration><![CDATA[{attribute 'monitoring':='call'}
+// Right trigger value
 PROPERTY P_Right_Trigger : REFERENCE TO REAL]]></Declaration>
       <Get Name="Get" Id="{f85af2b8-09ba-4400-a23b-f2e4aab2e32c}">
         <Declaration><![CDATA[VAR
@@ -242,7 +247,8 @@ P_Right_Trigger REF= THIS^._fRightTrigger;]]></ST>
       </Get>
     </Property>
     <Property Name="P_SetRumble" Id="{e951a137-f153-4333-bf9b-6c5d979a71f2}">
-      <Declaration><![CDATA[// Status of the SetRumble method
+      <Declaration><![CDATA[{attribute 'monitoring':='call'}
+// Status of the SetRumble method
 PROPERTY P_SetRumble : REFERENCE TO ST_Xbox_Class_Command_Status]]></Declaration>
       <Get Name="Get" Id="{1009e700-d671-4ebf-b638-5a140a7d5a04}">
         <Declaration><![CDATA[VAR
@@ -256,7 +262,8 @@ END_VAR
       </Get>
     </Property>
     <Property Name="P_Status" Id="{9862bf27-d17e-48b2-b703-c886caf0e3f2}">
-      <Declaration><![CDATA[// Structure of the controller capabilites and status
+      <Declaration><![CDATA[{attribute 'monitoring':='call'}
+// Structure of the controller capabilites and status
 PROPERTY P_Status : REFERENCE TO ST_Xbox_Controller_Status]]></Declaration>
       <Get Name="Get" Id="{dabe201a-2054-48fe-a490-6ba481e4db51}">
         <Declaration><![CDATA[VAR

@@ -17,7 +17,7 @@
     <LibraryReferences>{b29f5ee5-d38d-497f-ae98-ee34c52a5f1c}</LibraryReferences>
     <Released>true</Released>
     <Title>XboxControllerUtilities</Title>
-    <ProjectVersion>1.3</ProjectVersion>
+    <ProjectVersion>1.4</ProjectVersion>
     <Author>John Helfrich</Author>
     <Company>Beckhoff Community</Company>
     <CombineIds>true</CombineIds>

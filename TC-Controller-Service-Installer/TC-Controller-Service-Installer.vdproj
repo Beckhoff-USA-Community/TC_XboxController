@@ -51,13 +51,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F13D4B5D9DF24B96A1B09EFB0D0BCC5E"
+        "MsmKey" = "8:_D471DBBF4EA04A15B7935FF95C7E3519"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_FCD9C0E773FC4B67830C00924D9C30B8"
+        "MsmKey" = "8:_F13D4B5D9DF24B96A1B09EFB0D0BCC5E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -283,12 +283,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F13D4B5D9DF24B96A1B09EFB0D0BCC5E"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D471DBBF4EA04A15B7935FF95C7E3519"
             {
-            "SourcePath" = "8:XBox Wireless Dongle Driver\\README.txt"
-            "TargetName" = "8:README.txt"
+            "SourcePath" = "8:..\\Build\\PLC Library\\v1_4\\XboxControllerUtilities.library"
+            "TargetName" = "8:XboxControllerUtilities.library"
             "Tag" = "8:"
-            "Folder" = "8:_AEE1C9FBA3D541D88494F261E61F9A55"
+            "Folder" = "8:_9041460B92DF4986ACBA1C5E2BE29356"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -303,12 +303,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FCD9C0E773FC4B67830C00924D9C30B8"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F13D4B5D9DF24B96A1B09EFB0D0BCC5E"
             {
-            "SourcePath" = "8:..\\Build\\PLC Library\\v1_3\\XboxControllerUtilities.library"
-            "TargetName" = "8:XboxControllerUtilities.library"
+            "SourcePath" = "8:XBox Wireless Dongle Driver\\README.txt"
+            "TargetName" = "8:README.txt"
             "Tag" = "8:"
-            "Folder" = "8:_9041460B92DF4986ACBA1C5E2BE29356"
+            "Folder" = "8:_AEE1C9FBA3D541D88494F261E61F9A55"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"

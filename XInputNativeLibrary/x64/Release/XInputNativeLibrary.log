@@ -2,7 +2,7 @@
   XBoxControllerWrapper.cpp
      Creating library C:\Users\John Helfrich\Documents\GitHub\TwinCAT-Xbox-Controller-Service\Build\x64\Release\XInputNativeLibrary.lib and object C:\Users\John Helfrich\Documents\GitHub\TwinCAT-Xbox-Controller-Service\Build\x64\Release\XInputNativeLibrary.exp
   Generating code
+  Finished generating code
   Previous IPDB not found, fall back to full compilation.
   All 30 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
   XInputNativeLibrary.vcxproj -> C:\Users\John Helfrich\Documents\GitHub\TwinCAT-Xbox-Controller-Service\Build\x64\Release\XInputNativeLibrary.dll
