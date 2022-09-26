@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <POU Name="FB_Xbox_Dual_Button_NC" Id="{58bfdfc1-d500-4df4-9636-b1b46fc4c0d8}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK FB_Xbox_Dual_Button_NC
+    <Declaration><![CDATA[{attribute 'no_explicit_call' := 'do not call this FB directly'} 
+FUNCTION_BLOCK FB_Xbox_Dual_Button_NC
 VAR
 	// Axis Control Blocks
 	_Button_NC			: FB_Xbox_Single_Button_NC;

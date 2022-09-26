@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <POU Name="FB_Xbox_Controller" Id="{16e61ff8-1d18-479b-8b07-5a4f238667a6}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK FB_Xbox_Controller
+    <Declaration><![CDATA[{attribute 'no_explicit_call' := 'do not call this FB directly, call Cycle instead'} 
+FUNCTION_BLOCK FB_Xbox_Controller
 VAR
 	{attribute 'hide'}
 	_AmsNetId : T_AMSNETID;

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <POU Name="FB_Xbox_2D_Joystick_XPlanar" Id="{4e6eb62d-2734-067f-3286-7415f748b2ed}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK FB_Xbox_2D_Joystick_XPlanar
+    <Declaration><![CDATA[{attribute 'no_explicit_call' := 'do not call this FB directly'} 
+FUNCTION_BLOCK FB_Xbox_2D_Joystick_XPlanar
 VAR
 	_rtJogEnable			: R_TRIG;
 	_ftJogEnable			: F_TRIG;

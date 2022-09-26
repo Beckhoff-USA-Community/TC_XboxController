@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <POU Name="FB_Xbox_Single_Button_NC" Id="{33a2eeaa-a1e7-4d1f-b008-50b37140f1b8}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK FB_Xbox_Single_Button_NC
+    <Declaration><![CDATA[{attribute 'no_explicit_call' := 'do not call this FB directly'} 
+FUNCTION_BLOCK FB_Xbox_Single_Button_NC
 VAR
 	_mcJog				: MC_Jog;
 	_mcHalt				: MC_Halt;

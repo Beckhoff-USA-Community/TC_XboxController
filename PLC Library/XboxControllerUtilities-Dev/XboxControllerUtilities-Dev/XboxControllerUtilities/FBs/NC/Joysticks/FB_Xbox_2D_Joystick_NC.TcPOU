@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <POU Name="FB_Xbox_2D_Joystick_NC" Id="{12e9f3c7-91a0-415a-afeb-2e31aedc9cac}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK FB_Xbox_2D_Joystick_NC
+    <Declaration><![CDATA[{attribute 'no_explicit_call' := 'do not call this FB directly'} 
+FUNCTION_BLOCK FB_Xbox_2D_Joystick_NC
 VAR
 	// Axis Control Blocks
 	_JoystickNC_X		: FB_Xbox_1D_Joystick_NC;
