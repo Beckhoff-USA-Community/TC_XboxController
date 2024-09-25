@@ -16,7 +16,7 @@ Please visit [the Releases section of the GitHub page](https://github.com/Beckho
 
 ### Documentation:
 
-For the latest documentation on installing the service and using the API, [please visit the documentation website](https://beckhoff-usa-community.github.io/TwinCAT-Xbox-Controller-Service/).
+For the latest documentation on installing the service and using the API, [please visit the documentation website](https://beckhoff-usa-community.github.io/TC_XboxController/).
 
 
 
