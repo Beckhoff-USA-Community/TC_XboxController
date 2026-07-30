@@ -1,3 +1,12 @@
+# This project has moved
+
+This repository is retired and receives no further updates. The project continues as ADS Gamepad Service under a new name, with PlayStation and Bluetooth support, Beckhoff RT Linux support, TwinCAT packages, and current documentation:
+
+https://github.com/Beckhoff-USA-Community/ADS-Gamepad-Service
+
+If you use the old service or the XboxControllerUtilities library, the migration guide in the new repository walks you through the change. The final release of the XboxControllerUtilities library is available under Releases in the new repository.
+
+
 # TwinCAT Xbox Controller Service
 
 
